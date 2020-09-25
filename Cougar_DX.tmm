@@ -1,0 +1,8 @@
+Rem # Cougar_DX.tmm, version 2019-02-01
+Rem # To be used together with Cougar_DX.tmj and the BMS - Basic TM Cougar_DX.key file!
+Rem # For more info see Device Setup Guide.pdf.
+
+2D_Cockpit = 2
+3D_Cockpit = 3
+Wheelbrakes = k
+

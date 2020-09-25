@@ -1,0 +1,178 @@
+// --------------------------------------------------- IL-2 T.A.R.G.E.T Macros File ------------------------------------------------------
+
+
+
+
+// HotKey aircraftView **********************
+
+
+define NextViewFollow	L_SHIFT+USB[0x41]		//NextViewFollow
+define NextViewEnemyFollow	L_CTL+USB[0x41]		//NextViewEnemyFollow
+define NextViewEnemy	L_CTL+USB[0x3B]		//NextViewEnemy
+define OutsideViewFollow	USB[0x41]		//OutsideViewFollow
+define OutsideViewFly	USB[0x3C]		//OutsideViewFly
+define OutsideView	USB[0x3B]		//OutsideView
+define NextView	L_SHIFT+USB[0x3B]		//NextView
+define CockpitView	USB[0x3A]		//CockpitView
+define CockpitShow	L_CTL+USB[0x3A]		//CockpitShow
+define cockpitAim	L_SHIFT+USB[0x3A]		//cockpitAim
+define fov90	USB[0x4E]		//fov90
+define fov70	USB[0x4D]		//fov70
+define fov30	USB[0x4C]		//fov30
+define ViewEnemyDirectGround	L_ALT+USB[0x40]		//ViewEnemyDirectGround
+define ViewEnemyDirectAir	L_ALT+USB[0x3F]		//ViewEnemyDirectAir
+define ViewEnemyAir	USB[0x3F]		//ViewEnemyAir
+define ViewFriendGround	L_SHIFT+USB[0x40]		//ViewFriendGround
+define ViewFriendAir	L_SHIFT+USB[0x3F]		//ViewFriendAir
+define ViewEnemyGround	USB[0x40]		//ViewEnemyGround
+define PadlockViewPrev	USB[0x1C]		//PadlockViewPrev
+define PadlockViewFriend	L_SHIFT+USB[0x3D]		//PadlockViewFriend
+define PadlockViewForward	USB[0x62]		//PadlockViewForward
+define PadlockView	USB[0x3D]		//PadlockView
+define PadlockViewNext	USB[0x18]		//PadlockViewNext
+define PadlockViewGround	USB[0x3E]		//PadlockViewGround
+define PadlockViewFriendGround	L_SHIFT+USB[0x3E]		//PadlockViewFriendGround
+define changeCockpit	USB[0x06]		//changeCockpit
+
+
+// HotKey gunner **********************
+
+
+define Fire	USB[0]		//Fire
+
+
+// HotKey misc **********************
+
+
+define onlineRating	USB[0x16]		//onlineRating
+define pad	USB[0x10]		//pad
+define ejectPilot	L_CTL+USB[0x08]		//ejectPilot
+define toggleSmokes	USB[0x17]		//toggleSmokes
+define autopilot	USB[0x04]		//autopilot
+define chat	USB[0x35]		//chat
+define cockpitLight	L_CTL+USB[0x0F]		//cockpitLight
+define cockpitDim	L_CTL+USB[0x07]		//cockpitDim
+
+
+// HotKey move **********************
+
+
+define rudder	USB[0x00]		//rudder
+define aileron	USB[0x00]		//aileron
+define _pitch	USB[0x00]		//_pitch
+define _power	USB[0x00]		//_power
+define brakes	USB[0x00]		//brakes
+define elevator	USB[0x00]		//elevator
+
+
+// HotKey orders **********************
+
+
+define order4	USB[0x21]		//order4
+define order5	USB[0x22]		//order5
+define order2	USB[0x1F]		//order2
+define order3	USB[0x20]		//order3
+define order8	USB[0x25]		//order8
+define order9	USB[0x26]		//order9
+define order6	USB[0x23]		//order6
+define order7	USB[0x24]		//order7
+define deactivate	USB[0x29]		//deactivate
+define order0	USB[0x27]		//order0
+define order1	USB[0x1E]		//order1
+
+
+// HotKey PanView **********************
+
+
+define PanRight2	USB[0x00]		//PanRight2
+define PanRight	USB[0x61]		//PanRight
+define PanRight3	USB[0x00]		//PanRight3
+define PanUp	USB[0x60]		//PanUp
+define PanReset	USB[0x5D]		//PanReset
+define PanLeft	USB[0x5F]		//PanLeft
+define PanDown	USB[0x5A]		//PanDown
+define PanLeft3	USB[0x59]		//PanLeft3
+define PanLeft2	USB[0x5C]		//PanLeft2
+
+
+// HotKey pilot **********************
+
+
+define RudderLeft	USB[0x1D]		//RudderLeft
+define RudderRight	USB[0x1B]		//RudderRight
+define Step0	L_SHIFT+USB[0x1E]		//Step0
+define Boost	USB[0x1A]		//Boost
+define Power80	USB[0x25]		//Power80
+define Power90	USB[0x26]		//Power90
+define Radiator	USB[0x15]		//Radiator
+define Weapon0	USB[0x00]		//Weapon0
+define Weapon1	USB[0x2A]		//Weapon1
+define AileronLeft	USB[0x50]		//AileronLeft
+define Weapon0	USB[0x28]		//Weapon0
+define Weapon1	USB[0x00]		//Weapon1
+define Weapon3	L_ALT+USB[0x2C]		//Weapon3
+define Weapon3	USB[0x00]		//Weapon3
+define Weapon2	USB[0x00]		//Weapon2
+define Weapon2	USB[0x2C]		//Weapon2
+define Step90	L_SHIFT+USB[0x21]		//Step90
+define StepAuto	L_SHIFT+USB[0x27]		//StepAuto
+define Step30	L_SHIFT+USB[0x1F]		//Step30
+define Step60	L_SHIFT+USB[0x20]		//Step60
+define Brake	USB[0x05]		//Brake
+define AIRCRAFT_DROP_TANKS	L_CTL+USB[0x17]		//AIRCRAFT_DROP_TANKS
+define AileronRight	USB[0x4F]		//AileronRight
+define AIRCRAFT_FLAPS_NOTCH_UP	USB[0x09]		//AIRCRAFT_FLAPS_NOTCH_UP
+define AIRCRAFT_FLAPS_NOTCH_DOWN	USB[0x19]		//AIRCRAFT_FLAPS_NOTCH_DOWN
+define Power70	USB[0x24]		//Power70
+define ElevatorDown	USB[0x51]		//ElevatorDown
+define AIRCRAFT_TOGGLE_ENGINE	USB[0x0C]		//AIRCRAFT_TOGGLE_ENGINE
+define AIRCRAFT_TRIM_H_MINUS	L_CTL+USB[0x50]		//AIRCRAFT_TRIM_H_MINUS
+define AIRCRAFT_TRIM_H_0	L_SHIFT+USB[0x50]		//AIRCRAFT_TRIM_H_0
+define AIRCRAFT_STABILIZER	USB[0x11]		//AIRCRAFT_STABILIZER
+define AIRCRAFT_RUDDER_CENTRE	USB[0x38]		//AIRCRAFT_RUDDER_CENTRE
+define AIRCRAFT_POWER_PLUS_5	USB[0x2E]		//AIRCRAFT_POWER_PLUS_5
+define AIRCRAFT_RUDDER_RIGHT_1	USB[0x37]		//AIRCRAFT_RUDDER_RIGHT_1
+define AIRCRAFT_RUDDER_LEFT_1	USB[0x36]		//AIRCRAFT_RUDDER_LEFT_1
+define Gear	USB[0x0A]		//Gear
+define AIRCRAFT_TRIM_V_0	L_SHIFT+USB[0x52]		//AIRCRAFT_TRIM_V_0
+define AIRCRAFT_TRIM_V_PLUS	L_CTL+USB[0x51]		//AIRCRAFT_TRIM_V_PLUS
+define AIRCRAFT_TRIM_V_MINUS	L_CTL+USB[0x52]		//AIRCRAFT_TRIM_V_MINUS
+define AIRCRAFT_TRIM_R_PLUS	L_CTL+USB[0x1B]		//AIRCRAFT_TRIM_R_PLUS
+define ElevatorUp	USB[0x52]		//ElevatorUp
+define AIRCRAFT_TRIM_H_PLUS	L_CTL+USB[0x4F]		//AIRCRAFT_TRIM_H_PLUS
+define AIRCRAFT_TRIM_R_MINUS	L_CTL+USB[0x1D]		//AIRCRAFT_TRIM_R_MINUS
+define AIRCRAFT_TRIM_R_0	L_SHIFT+USB[0x1B]		//AIRCRAFT_TRIM_R_0
+define AIRCRAFT_POWER_MINUS_5	USB[0x56]		//AIRCRAFT_POWER_MINUS_5
+define Power30	USB[0x20]		//Power30
+define Power20	USB[0x1F]		//Power20
+define Power100	USB[0x27]		//Power100
+define Power40	USB[0x21]		//Power40
+define Power0	USB[0x1E]		//Power0
+define Power60	USB[0x23]		//Power60
+define Power50	USB[0x22]		//Power50
+
+
+// HotKey SnapView **********************
+
+
+define Snap_0_m2	USB[0x5A]		//Snap_0_m2
+define Snap_1_0	USB[0x00]		//Snap_1_0
+define Snap_0_m1	USB[0x00]		//Snap_0_m1
+define Snap_0_0	USB[0x60]		//Snap_0_0
+define Snap_0_2	USB[0x5D]		//Snap_0_2
+define Snap_m2_0	USB[0x00]		//Snap_m2_0
+define SnapPanSwitch	USB[0x42]		//SnapPanSwitch
+define Snap_m3_0	USB[0x59]		//Snap_m3_0
+define Snap_2_0	USB[0x5E]		//Snap_2_0
+define Snap_3_0	USB[0x00]		//Snap_3_0
+define Snap_m1_0	USB[0x5F]		//Snap_m1_0
+
+
+// HotKey timeCompression **********************
+
+
+define timeSpeedDown	USB[0x2F]		//timeSpeedDown
+define timeSpeedNormal	USB[0x34]		//timeSpeedNormal
+define timeSpeedUp	USB[0x30]		//timeSpeedUp
+define timeSpeedPause	USB[0x48]		//timeSpeedPause
+define timeSpeedPause	USB[0x13]		//timeSpeedPause

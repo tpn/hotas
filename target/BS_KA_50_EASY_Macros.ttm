@@ -1,0 +1,307 @@
+// ------------------------------------------ BS------------------------------------------
+
+
+// ------------------------------------------  T.A.R.G.E.T Macros File ------------------------------------------
+
+
+// Autopilot **********************
+
+
+define	Collective_brake_Assign_altitude_lever	L_ALT+L_CTL+USB[0x07]	//Collective brake - Assign altitude lever
+define	Engage_Descent_Mode	USB[0x09]	//Engage Descent Mode
+define	Hover_On_Off	L_ALT+USB[0x0B]	//Hover On/Off
+define	Engage_Disengage_Route_Mode	USB[0x15]	//Engage/Disengage Route Mode
+
+
+// Controls **********************
+
+
+define	Cyclic_nose_up	USB[0x51]	//Cyclic nose up
+define	Throttle_up__Idle_Medium_Auto_Full_	USB[0x4B]	//Throttle up (Idle-Medium-Auto-Full)
+define	Trimmer	USB[0x17]	//Trimmer
+define	Trimmer_Reset	L_CTL+USB[0x17]	//Trimmer Reset
+define	Cyclic_nose_down	USB[0x52]	//Cyclic nose down
+define	Collective_down	USB[0x04]	//Collective down
+define	Collective_up	USB[0x14]	//Collective up
+define	Rudder_left	USB[0x1D]	//Rudder left
+define	Throttle_down__Idle_Medium_Auto_Full_	USB[0x4E]	//Throttle down (Idle-Medium-Auto-Full)
+define	Rudder_right	USB[0x1B]	//Rudder right
+define	Cyclic_bank_left	USB[0x50]	//Cyclic bank left
+define	Cyclic_bank_right	USB[0x4F]	//Cyclic bank right
+
+
+// General **********************
+
+
+define	Multiplayer_chat_mode_Allies	R_CTL+USB[0x35]	//Multiplayer chat - mode Allies
+define	Multiplayer_chat_mode_All	USB[0x35]	//Multiplayer chat - mode All
+define	Pause	USB[0x48]	//Pause
+define	Score_window	USB[0x00]	//Score window
+define	Playback_track_cancel	L_SHIFT+USB[0x2B]	//Playback track cancel
+define	End_mission	USB[0x29]	//End mission
+define	Get_New_Plane_respawn	R_SHIFT+R_CTL+USB[0x2B]	//Get New Plane - respawn
+define	Frame_rate_counter_Service_info	R_CTL+USB[0x48]	//Frame rate counter - Service info
+define	Coordinates_units_change	L_ALT+USB[0x1C]	//Coordinates units change
+define	Clickable_mouse_cockpit_mode_On_Off	L_ALT+USB[0x06]	//Clickable mouse cockpit mode On/Off
+define	Info_bar_view_toggle	L_CTL+USB[0x1C]	//Info bar view toggle
+define	Show_Pilot_Body	R_SHIFT+USB[0x13]	//Show Pilot Body
+define	Sound_On_Off	L_CTL+USB[0x16]	//Sound On/Off
+define	Time_accelerate	L_CTL+USB[0x1D]	//Time accelerate
+define	Show_Controls_position	R_CTL+USB[0x28]	//Show Controls position
+define	Screenshot	USB[0x46]	//Screenshot
+define	Time_normal	L_SHIFT+USB[0x1D]	//Time normal
+define	Time_decelerate	L_ALT+USB[0x1D]	//Time decelerate
+
+
+// Illumination **********************
+
+
+define	Light_anti_collision	R_SHIFT+USB[0x0D]	//Light anti-collision
+define	Light_landing_search_down	R_CTL+USB[0x37]	//Light landing search down
+define	Light_landing_search_On_Retraction_Off	USB[0x0F]	//Light landing search On/Retraction/Off
+define	Light_landing_search_left	R_CTL+USB[0x36]	//Light landing search left
+define	Cockpit_illumination_ADI_&_AHR	R_SHIFT+R_ALT+USB[0x0E]	//Cockpit illumination ADI & AHR
+define	Cockpit_illumination_control_panel	R_ALT+R_CTL+USB[0x0E]	//Cockpit illumination control panel
+define	Cockpit_gauges_illumination	R_CTL+USB[0x0E]	//Cockpit gauges illumination
+define	Cockpit_illumination	USB[0x0E]	//Cockpit illumination
+define	Lights_navigation_10%_30%_100%_Off	R_ALT+USB[0x0F]	//Lights navigation 10%/30%/100%/Off
+define	Cockpit_blue_NVG_illumination	R_SHIFT+USB[0x0E]	//Cockpit blue NVG illumination
+define	Lights_rotor_tip	R_ALT+USB[0x0D]	//Lights rotor tip
+define	Light_landing_search_right	R_CTL+USB[0x38]	//Light landing search right
+define	Light_landing_search_up	R_CTL+USB[0x33]	//Light landing search up
+define	Lights_formation_10%_30%_100%_Off	R_CTL+USB[0x0D]	//Lights formation 10%/30%/100%/Off
+
+
+// Ins ABRIS AMMS **********************
+
+
+define	ABRIS_Axis_Increase	USB[0x25]	//ABRIS Axis Increase
+define	ABRIS_Axis_Push	USB[0x23]	//ABRIS Axis Push
+define	ABRIS_Button_3	USB[0x20]	//ABRIS Button 3
+define	ABRIS_Axis_Decrease	USB[0x24]	//ABRIS Axis Decrease
+define	ABRIS_Power	R_SHIFT+USB[0x27]	//ABRIS Power
+define	ABRIS_Brightness_Decrease	USB[0x26]	//ABRIS Brightness Decrease
+define	ABRIS_Button_4	USB[0x21]	//ABRIS Button 4
+define	ABRIS_Button_5	USB[0x22]	//ABRIS Button 5
+define	ABRIS_Button_1	USB[0x1E]	//ABRIS Button 1
+define	ABRIS_Brightness_Increase	USB[0x27]	//ABRIS Brightness Increase
+define	ABRIS_Button_2	USB[0x1F]	//ABRIS Button 2
+
+
+// Ins Cyclic Stick **********************
+
+
+define	Wheel_brake_parking	L_SHIFT+USB[0x1A]	//Wheel brake parking
+
+
+// Labels **********************
+
+
+define	Vehicle_&_Ship_Labels	L_SHIFT+USB[0x42]	//Vehicle & Ship Labels
+define	Missile_Labels	L_SHIFT+USB[0x3F]	//Missile Labels
+define	Aircraft_Labels	L_SHIFT+USB[0x3B]	//Aircraft Labels
+define	All_Labels	L_SHIFT+USB[0x43]	//All Labels
+
+
+// Radio Communications **********************
+
+
+define	Toggle_formation	L_WIN+USB[0x17]	//Toggle formation
+define	Flight_Attack_ground_targets	L_WIN+USB[0x0A]	//Flight - Attack ground targets
+define	Flight_complete_mission_and_rejoin	L_WIN+USB[0x15]	//Flight - complete mission and rejoin
+define	Flight_Attack_air_defenses	L_WIN+USB[0x07]	//Flight - Attack air defenses
+define	Join_up_formation	L_WIN+USB[0x1C]	//Join up formation
+define	Flight_Complete_mission_and_RTB	L_WIN+USB[0x08]	//Flight - Complete mission and RTB
+define	Attack_my_target	L_WIN+USB[0x14]	//Attack my target
+define	Communication_menu	USB[0x31]	//Communication menu
+define	Cover_me	L_WIN+USB[0x1A]	//Cover me
+
+
+// Systems **********************
+
+
+define	Raise_Lower_Colour_Filter_On_HUD	R_SHIFT+USB[0x0B]	//Raise/Lower Colour Filter On HUD
+define	Helmet_mounted_system_On_Off	USB[0x0B]	//Helmet-mounted system On/Off
+define	Wheel_brake_on	USB[0x1A]	//Wheel brake on
+define	Gear_lever	USB[0x0A]	//Gear lever
+define	UV_26_Start_Dispense	USB[0x49]	//UV-26 Start Dispense
+define	Cockpit_door_open_close	R_CTL+USB[0x06]	//Cockpit door open/close
+define	Start_Engines	L_WIN+USB[0x4A]	//Start Engines
+define	Stop_Engines	L_WIN+USB[0x4D]	//Stop Engines
+define	Eject	L_CTL+USB[0x08]	//Eject
+
+
+// Targeting **********************
+
+
+define	Auto_lock_on_nearest_surface_target	USB[0x05]	//Auto lock on nearest surface target
+define	Auto_lock_on_nearest_aircraft	USB[0x0D]	//Auto lock on nearest aircraft
+define	Auto_lock_on_center_surface_target	USB[0x19]	//Auto lock on center surface target
+define	Clear_Selected_Target	USB[0x4C]	//Clear Selected Target
+define	Auto_lock_on_next_surface_target	USB[0x10]	//Auto lock on next surface target
+define	Auto_lock_on_next_aircraft	USB[0x30]	//Auto lock on next aircraft
+define	Lock_target	USB[0x28]	//Lock target
+define	Easy_Radar_scale_in	USB[0x2E]	//Easy Radar scale in
+define	Easy_Radar_scale_out	USB[0x2D]	//Easy Radar scale out
+define	Easy_Radar_toggle	R_CTL+USB[0x0C]	//Easy Radar toggle
+define	Uncage_SHKVAL__designate_target	USB[0x12]	//Uncage SHKVAL, designate target
+define	Auto_lock_on_center_aircraft	USB[0x13]	//Auto lock on center aircraft
+define	TV_Target_frame_Decrease_size	R_CTL+USB[0x2F]	//TV Target frame Decrease size
+define	TV_Target_frame_Increase_size	R_CTL+USB[0x30]	//TV Target frame Increase size
+define	Shkval_Narrow_View_23x	R_CTL+USB[0x2E]	//Shkval Narrow View 23x
+define	Shkval_Wide_View_7x	R_CTL+USB[0x2D]	//Shkval Wide View 7x
+define	Button_Targeting_mode_reset	USB[0x2A]	//Button Targeting mode reset
+define	Selector_up	R_SHIFT+USB[0x33]	//Selector up
+define	Selector_down	R_SHIFT+USB[0x37]	//Selector down
+define	Selector_left	R_SHIFT+USB[0x36]	//Selector left
+define	Selector_right	R_SHIFT+USB[0x38]	//Selector right
+define	Auto_lock_on_previous_surface_target	USB[0x11]	//Auto lock on previous surface target
+define	Auto_lock_on_previous_aircraft	USB[0x2F]	//Auto lock on previous aircraft
+
+
+// View **********************
+
+
+define	View_Down_Right_slow	USB[0x5B]	//View Down Right slow
+define	View_Down_Left_slow	USB[0x59]	//View Down Left slow
+define	Zoom_in_slow	USB[0x55]	//Zoom in slow
+define	View_Right_slow	USB[0x5E]	//View Right slow
+define	View_Left_slow	USB[0x5C]	//View Left slow
+define	View_Down_slow	USB[0x5A]	//View Down slow
+define	Center_View	USB[0x5D]	//Center View
+define	Object_exclude_	L_ALT+USB[0x4C]	//Object exclude 
+define	Objects_all_excluded_include	L_ALT+USB[0x49]	//Objects all excluded - include
+define	Zoom_out_slow	USB[0x54]	//Zoom out slow
+define	Objects_switching_direction_reverse_	L_CTL+USB[0x4B]	//Objects switching direction reverse 
+define	Objects_switching_direction_forward_	L_CTL+USB[0x4E]	//Objects switching direction forward 
+define	Zoom_normal	USB[0x58]	//Zoom normal
+define	Zoom_external_out	R_CTL+USB[0x54]	//Zoom external out
+define	F2_View_own_aircraft	L_CTL+USB[0x3B]	//F2 View own aircraft
+define	F3_Fly_By_jump_view	L_CTL+USB[0x3C]	//F3 Fly-By jump view
+define	F2_Toggle_local_camera_control	L_ALT+USB[0x3B]	//F2 Toggle local camera control
+define	F2_Aircraft_view	USB[0x3B]	//F2 Aircraft view
+define	F2_Toggle_camera_position	R_ALT+USB[0x3B]	//F2 Toggle camera position
+define	F3_Fly_By_view	USB[0x3C]	//F3 Fly-By view
+define	F5_Ground_hostile_view	L_CTL+USB[0x3E]	//F5 Ground hostile view
+define	F5_nearest_AC_view	USB[0x3E]	//F5 nearest AC view
+define	F4_Look_back_view	L_SHIFT+USB[0x3D]	//F4 Look back view
+define	F4_Arcade_Chase_view	USB[0x3D]	//F4 Arcade Chase view
+define	F4_Chase_view	L_CTL+USB[0x3D]	//F4 Chase view
+define	F10_Theater_map_view	USB[0x43]	//F10 Theater map view
+define	F11_Airport_free_camera	USB[0x44]	//F11 Airport free camera
+define	F10_Jump_to_theater_map_view_over_current_point	L_CTL+USB[0x43]	//F10 Jump to theater map view over current point
+define	F1_HUD_only_view_switch	L_ALT+USB[0x3A]	//F1 HUD only view switch
+define	F1_Natural_head_movement_view	L_CTL+USB[0x3A]	//F1 Natural head movement view
+define	F11_camera_moving_backward	L_ALT+USB[0x54]	//F11 camera moving backward
+define	F12_Static_object_view	USB[0x45]	//F12 Static object view
+define	F12_Trains_cars_toggle	L_SHIFT+USB[0x45]	//F12 Trains/cars toggle
+define	F12_Civil_traffic_view	L_CTL+USB[0x45]	//F12 Civil traffic view
+define	F11_camera_moving_forward	L_ALT+USB[0x55]	//F11 camera moving forward
+define	F11_Jump_to_free_camera	L_CTL+USB[0x44]	//F11 Jump to free camera
+define	F1_Cockpit_view	USB[0x3A]	//F1 Cockpit view
+define	Zoom_external_in	R_CTL+USB[0x55]	//Zoom external in
+define	Zoom_external_normal	R_CTL+USB[0x58]	//Zoom external normal
+define	View_Up_Left_slow	USB[0x5F]	//View Up Left slow
+define	View_Up_Right_slow	USB[0x61]	//View Up Right slow
+define	View_Up_slow	USB[0x60]	//View Up slow
+define	F9_Ship_view	USB[0x42]	//F9 Ship view
+define	F7_Ground_unit_view	USB[0x40]	//F7 Ground unit view
+define	F8_Player_targets_All_targets_filter	R_ALT+USB[0x41]	//F8 Player targets/All targets filter
+define	F6_Released_weapon_view	USB[0x3F]	//F6 Released weapon view
+define	F9_Landing_signal_officer_view	L_ALT+USB[0x42]	//F9 Landing signal officer view
+define	F6_Weapon_to_target_view	L_CTL+USB[0x3F]	//F6 Weapon to target view
+define	F8_Target_view	USB[0x41]	//F8 Target view
+
+
+// View Cockpit **********************
+
+
+define	Camera_snap_view_down	R_ALT+USB[0x5A]	//Camera snap view down
+define	View_left	R_SHIFT+USB[0x5C]	//View left
+define	View_up	R_SHIFT+USB[0x60]	//View up
+define	Zoom_in	R_SHIFT+USB[0x55]	//Zoom in
+define	View_right	R_SHIFT+USB[0x5E]	//View right
+define	View_up_left	R_SHIFT+USB[0x5F]	//View up left
+define	View_down_left	R_SHIFT+USB[0x59]	//View down left
+define	Zoom_out	R_SHIFT+USB[0x54]	//Zoom out
+define	View_down	R_SHIFT+USB[0x5A]	//View down
+define	View_down_right	R_SHIFT+USB[0x5B]	//View down right
+define	Slow_cockpit_keyboard	L_CTL+USB[0x30]	//Slow cockpit keyboard
+define	View_up_right	R_SHIFT+USB[0x61]	//View up right
+define	Slow_cockpit_mouse	L_CTL+USB[0x2F]	//Slow cockpit mouse
+define	Glance_left	R_CTL+USB[0x5C]	//Glance left
+define	Glance_right	R_CTL+USB[0x5E]	//Glance right
+define	Glance_up	R_CTL+USB[0x60]	//Glance up
+define	Glance_down	R_CTL+USB[0x5A]	//Glance down
+define	Glance_down_left	R_CTL+USB[0x59]	//Glance down-left
+define	Glance_down_right	R_CTL+USB[0x5B]	//Glance down-right
+define	Cockpit_panel_view_toggle	R_CTL+USB[0x62]	//Cockpit panel view toggle
+define	Cockpit_panel_view_in	USB[0x62]	//Cockpit panel view in
+define	Cockpit_Camera_Move_Up	R_SHIFT+R_CTL+USB[0x60]	//Cockpit Camera Move Up
+define	Glance_up_left	R_CTL+USB[0x5F]	//Glance up-left
+define	Glance_up_right	R_CTL+USB[0x61]	//Glance up-right
+define	Head_shift_movement_on_off	L_WIN+USB[0x3A]	//Head shift movement on / off
+define	Custom_Snap_View__6	L_WIN+USB[0x5E]	//Custom Snap View  6
+define	Custom_Snap_View__5	L_WIN+USB[0x5D]	//Custom Snap View  5
+define	Fast_cockpit_keyboard	L_SHIFT+USB[0x30]	//Fast cockpit keyboard
+define	Custom_Snap_View__9	L_WIN+USB[0x61]	//Custom Snap View  9
+define	Custom_Snap_View__8	L_WIN+USB[0x60]	//Custom Snap View  8
+define	Custom_Snap_View__7	L_WIN+USB[0x5F]	//Custom Snap View  7
+define	Custom_Snap_View__2	L_WIN+USB[0x5A]	//Custom Snap View  2
+define	Custom_Snap_View__1	L_WIN+USB[0x59]	//Custom Snap View  1
+define	Custom_Snap_View__0	L_WIN+USB[0x62]	//Custom Snap View  0
+define	Fast_cockpit_mouse	L_SHIFT+USB[0x2F]	//Fast cockpit mouse
+define	Custom_Snap_View__4	L_WIN+USB[0x5C]	//Custom Snap View  4
+define	Custom_Snap_View__3	L_WIN+USB[0x5B]	//Custom Snap View  3
+define	Normal_cockpit_mouse_speed	L_ALT+USB[0x2F]	//Normal cockpit mouse speed
+define	Camera_snap_view_up_left	R_ALT+USB[0x5F]	//Camera snap view up-left
+define	Camera_snap_view_up	R_ALT+USB[0x60]	//Camera snap view up
+define	Center_camera_view	R_SHIFT+USB[0x5D]	//Center camera view
+define	Camera_snap_view_up_right	R_ALT+USB[0x61]	//Camera snap view up-right
+define	Normal_cockpit_keyboard_speed	L_ALT+USB[0x30]	//Normal cockpit keyboard speed
+define	Return_camera	R_CTL+USB[0x5D]	//Return camera
+define	Save_Cockpit_Angles	R_ALT+USB[0x62]	//Save Cockpit Angles
+define	Camera_snap_view_down_right	R_ALT+USB[0x5B]	//Camera snap view down-right
+define	Camera_snap_view_down_left	R_ALT+USB[0x59]	//Camera snap view down-left
+define	Return_camera_base	R_ALT+USB[0x5D]	//Return camera base
+define	Camera_snap_view_right	R_ALT+USB[0x5E]	//Camera snap view right
+define	Camera_snap_view_left	R_ALT+USB[0x5C]	//Camera snap view left
+define	Cockpit_Camera_Move_Forward	R_SHIFT+R_CTL+USB[0x55]	//Cockpit Camera Move Forward
+define	Cockpit_Camera_Move_Center	R_SHIFT+R_CTL+USB[0x5D]	//Cockpit Camera Move Center
+define	Cockpit_Camera_Move_Down	R_SHIFT+R_CTL+USB[0x5A]	//Cockpit Camera Move Down
+define	Cockpit_Camera_Move_Left	R_SHIFT+R_CTL+USB[0x5C]	//Cockpit Camera Move Left
+define	Cockpit_Camera_Move_Right	R_SHIFT+R_CTL+USB[0x5E]	//Cockpit Camera Move Right
+define	Cockpit_Camera_Move_Back	R_SHIFT+R_CTL+USB[0x54]	//Cockpit Camera Move Back
+
+
+// View Extended **********************
+
+
+define	View_friends_mode	R_ALT+R_SHIFT+R_CTL+USB[0x09]	//View friends mode
+define	View_all_mode	R_ALT+R_SHIFT+R_CTL+USB[0x04]	//View all mode
+define	Keep_terrain_camera_altitude	L_ALT+USB[0x0E]	//Keep terrain camera altitude
+define	Toggle_tracking_fire_weapon	R_CTL+USB[0x57]	//Toggle tracking fire weapon
+define	Camera_jiggle_toggle	L_SHIFT+USB[0x0D]	//Camera jiggle toggle
+define	View_enemies_mode	R_ALT+R_SHIFT+R_CTL+USB[0x07]	//View enemies mode
+
+
+// View Padlock **********************
+
+
+define	All_missiles_padlock	R_SHIFT+USB[0x63]	//All missiles padlock
+define	Lock_terrain_view	R_CTL+USB[0x63]	//Lock terrain view
+define	Threat_missile_padlock	R_ALT+USB[0x63]	//Threat missile padlock
+define	Lock_view__cycle_padlock_	USB[0x63]	//Lock view (cycle padlock)
+define	Unlock_view__stop_padlock_	USB[0x53]	//Unlock view (stop padlock)
+
+
+// Weapons **********************
+
+
+define	Cycle_Weapon	USB[0x07]	//Cycle Weapon
+define	Weapon_selection_all_stations	USB[0x18]	//Weapon selection all stations
+define	Weapon_mode_switch_burst_amount	USB[0x16]	//Weapon mode switch - burst amount
+define	Gun_Select	USB[0x06]	//Gun Select
+define	Fire	USB[0x2C]	//Fire
+define	Weapon_selection_outward_stations	USB[0x1C]	//Weapon selection outward stations
+define	Weapon_selection_inward_stations	USB[0x0C]	//Weapon selection inward stations

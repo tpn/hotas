@@ -1,0 +1,137 @@
+include "target.tmh"
+include "FC2_KA_50_Macros.ttm"
+
+int curve1, curve2;	//declare custom curve function for TV slew
+
+int main()
+{
+    if(Init(&EventHandle)) return 1; // declare the event handler, return on error
+
+
+MapAxis(&Joystick, JOYX, DX_X_AXIS);
+MapAxis(&Joystick, JOYY, DX_Y_AXIS);
+MapAxis(&Throttle, THR_LEFT, DX_ZROT_AXIS);
+MapAxis(&Throttle, THR_RIGHT, DX_Z_AXIS, AXIS_REVERSED);
+MapAxis(&Throttle, SCX, DX_XROT_AXIS);
+MapAxis(&Throttle, SCY, DX_YROT_AXIS, AXIS_REVERSED);    
+MapAxis(&Throttle, THR_FC, DX_SLIDER_AXIS);
+
+curve1 = LIST(0,42, 45,50, 55,50, 100,58);
+curve2 = LIST(0,47, 45,50, 55,50, 100,53);
+
+
+MapKey(&Joystick, TG1, Gun_fire);	//cannon
+MapKey(&Joystick, TG2, 0);	//kill TG2
+
+MapKey(&Joystick, S1, Gun_Select);	//switch to cannon
+MapKey(&Joystick, S2, Release_weapons);	//Weapon release
+MapKey(&Joystick, S3, Trimmer_reset);//cancel trim
+MapKey(&Joystick, S4, Trimmer);//trim
+
+//Hat 1 is 100% DirecX-------------------------------------------------------------------------------
+
+//Hat 2----------------------------------------------------------------------------------------------
+MapKey(&Joystick, H2U, Autopilot_Heading_hold);	//AP heading
+MapKey(&Joystick, H2D, Autopilot_Altitude_hold);//AP alt Radar managed by exec with RDR ALTM switch
+MapKey(&Joystick, H2L, Autopilot_Bank_hold);	//AP roll
+MapKey(&Joystick, H2R, Autopilot_Pitch_hold);	//AP tang
+
+//Hat3------------------------------------------------------------------------------------------------
+MapKey(&Joystick, H3U, SEQ(Button_Head_on_airborne_target_aspect, Button_Airborne_target));	
+MapKey(&Joystick, H3D, Button_Ground_moving_target);
+MapKey(&Joystick, H3L, Automatic_tracking_gun_sight);	
+MapKey(&Joystick, H3R, Autopilot_Pitch_hold);	
+//Hat4------------------------------------------------------------------------------------------------
+//CMS
+MapKey(&Joystick, H4U, UV_26_Number_of_flare_sequences);
+MapKey(&Joystick, H4D, UV_26_Number_of_flares_in_sequence);
+MapKey(&Joystick, H4L, UV_26_Amount_flares_counter_Programming);
+MapKey(&Joystick, H4R, UV_26_Delay_between_sequences);
+MapKey(&Joystick, H4P, TEMPO(SEQ(UV_26_Start_dispensing,UV_26_Stop_dispensing), UV_26_Reset_current_program));	
+
+
+//----------------------------------------------------------------------------------------------------
+//THROTTLE--------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
+
+
+MapKey(&Throttle, EFLNORM, PULSE+Fire_extinguisher_left_engine_);	//Fire_extinguisher_left_engine_
+MapKey(&Throttle, EFRNORM, PULSE+Fire_extinguisher_right_engine);	//Fire_extinguisher_right_engine
+MapKey(&Throttle, EFLOVER, PULSE+0);										//
+MapKey(&Throttle, EFROVER, PULSE+0);										//
+
+MapKey(&Throttle, APUON, PULSE+0); 											//
+MapKey(&Throttle, APUOFF, PULSE+0);										//
+
+MapKey(&Throttle, LDGH, 0);											//
+
+MapKey(&Throttle, FLAPU, PULSE+0); //
+MapKeyR(&Throttle, FLAPU, PULSE+0);
+MapKey(&Throttle, FLAPM, 0);
+MapKey(&Throttle, FLAPD, PULSE+0); //
+MapKeyR(&Throttle, FLAPD, PULSE+0);
+
+//AP Panel
+MapKey(&Throttle, APENG, Autopilot_Director_control);
+MapKey(&Throttle, RDRNRM, EXEC("MapKey(&Joystick, H2D, Autopilot_Altitude_hold);"));	//AP alt/baro radar
+MapKey(&Throttle, RDRDIS, EXEC("MapKey(&Joystick, H2D, Autopilot_BARO_RALT_altitude_hold_mode"));	//AP alt/baro radar
+MapKey(&Throttle, EACON, Laser_standby_On_Off_switch); 													//
+MapKey(&Throttle, EACOFF,Laser_standby_On_Off_switch); 													//
+MapKey(&Throttle, APPAT, PULSE+Autopilot_Director_control); 					//Autopilot_Director_control
+MapKeyR(&Throttle, APPAT, PULSE+Autopilot_Director_control); 					//Autopilot_Director_control
+MapKey(&Throttle, APAH,0); 													//
+MapKey(&Throttle, APALT, PULSE+Autopilot_Desired_heading_Desired_track); 		//Autopilot_Desired_heading_Desired_track
+MapKeyR(&Throttle, APALT, PULSE+Autopilot_Desired_heading_Desired_track); 		//Autopilot_Desired_heading_Desired_track
+
+//Throttle Left Arm-----------------------------------------------------------------------------------
+MapKey(&Throttle, LTB, PULSE+Hover_On_Off);  //hoover mode
+MapKey(&Throttle, PSF, PULSE+R_SHIFT+USB[0x0D]);  //anti coll light
+MapKeyR(&Throttle, PSF, PULSE+R_SHIFT+USB[0x0D]);  //anti coll light
+MapKey(&Throttle, PSB, PULSE+R_ALT+USB[0x0D]);  //blade lights
+MapKeyR(&Throttle, PSB, PULSE+R_ALT+USB[0x0D]);  //blade lights
+
+//THrottle Right ARM----------------------------------------------------------------------------------
+MapKey(&Throttle, SC, Lock_target);	//lock target
+
+
+
+MapKey(&Throttle, CSU, CHAIN(
+							Shkval_Wide_View_7x,//zoom out
+							EXEC(
+							"SetCustomCurve(&Throttle, SCX, curve1);SetCustomCurve(&Throttle, SCY, curve1);")));
+							
+MapKey(&Throttle, CSD, CHAIN(
+							Shkval_Narrow_View_23x,//zoom in
+							EXEC(
+							"SetCustomCurve(&Throttle, SCX, curve2);SetCustomCurve(&Throttle, SCY, curve2);")));
+							
+MapKey(&Throttle, CSL, PULSE+TV_Target_frame_Decrease_size);					//tv selection brakets -
+MapKey(&Throttle, CSR, PULSE+TV_Target_frame_Increase_size);					//tv selection braket +
+
+
+
+MapKey(&Throttle, MSP, 0); 														//use for teamspeak
+MapKey(&Throttle, MSU, PULSE+Flight_Attack_air_defenses); 						//Flight_Attack_air_defenses
+MapKey(&Throttle, MSD, PULSE+Flight_Attack_ground_targets); 					//Flight_Attack_ground_targets
+MapKey(&Throttle, MSL, PULSE+Cover_me); 										//cover me
+MapKey(&Throttle, MSR, PULSE+Attack_my_target); 								//Attack_My_Target
+
+MapKey(&Throttle, SPDF, PULSE+Engage_Disengage_Route_Mode); 					//Engage_Disengage_Route_Mode
+MapKeyR(&Throttle, SPDF, PULSE+Engage_Disengage_Route_Mode); 					//Engage_Disengage_Route_Mode
+MapKey(&Throttle, SPDM, PULSE+0); 							// 
+MapKey(&Throttle, SPDB, PULSE+Engage_Descent_Mode); 							// Engage_Descent_Mode
+MapKeyR(&Throttle, SPDB, PULSE+Engage_Descent_Mode); 							// Engage_Descent_Mode
+
+MapKey(&Throttle, BSF, PULSE+Weapon_selection_A_A_mode); 						//Weapon_selection_A_A_mode
+MapKey(&Throttle, BSM, PULSE+Weapon_selection_outward_stations); 				//Weapon_selection_outward_stations
+MapKey(&Throttle, BSB, PULSE+Weapon_selection_inward_stations); 				//Weapon_selection_inward_stations
+
+MapKey(&Throttle, CHF, PULSE+Uncage_SHKVAL__designate_target);// Shkval uncage
+MapKey(&Throttle, CHB, PULSE+KU_31_Shkval_center);// Shkval center
+
+}
+
+int EventHandle(int type, alias o, int x)
+{
+    DefaultMapping(&o, x);
+}

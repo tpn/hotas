@@ -1,0 +1,231 @@
+include "target.tmh"
+include "FC2_MIG_29C_Macros.ttm"
+
+
+//Mig 29 familly Flaming Cliffs 2 file by Guillaume "Dimebug" LELEVE
+//don't forget to map the axis under Flaming Cliffs 2 control panel
+//If You have used the automatic chaff flare programm, press S4 + H4D to stop the chaff and flare automatic programm
+//to avoid issues with IN and Del key generated.
+
+//custom function
+
+int Chaff_Flare_program_1; //custom Chaff and flare programm
+int Function_Autopilot; //custom autopilot for realistic autopilot handling
+int listmode, index;  //master modes list function
+
+//logical flags
+char idleLeft; //Flag idle engine left
+char idleRight; //Flag idle engine right
+
+
+int main()
+{
+    if(Init(&EventHandle)) return 1; // declare the event handler, return on error
+
+SetShiftButton(&Joystick, S4, &Throttle, BSF, BSB);
+
+MapAxis(&Joystick, JOYX, DX_X_AXIS);
+MapAxis(&Joystick, JOYY, DX_Y_AXIS);
+MapAxis(&Throttle, THR_LEFT, DX_ZROT_AXIS);
+MapAxis(&Throttle, THR_RIGHT, DX_Z_AXIS);
+MapAxis(&Throttle, SCX, DX_XROT_AXIS);
+MapAxis(&Throttle, SCY, DX_YROT_AXIS, AXIS_REVERSED);    
+MapAxis(&Throttle, THR_FC, DX_SLIDER_AXIS);
+
+SetCustomCurve(&Throttle, SCX, LIST(0,40, 45,50, 55,50, 100,60));	//low sensitivity curve used for tdc
+SetCustomCurve(&Throttle, SCY, LIST(0,40, 45,50, 55,50, 100,60));
+
+SetJCurve(&Throttle, THR_LEFT, 80, 95);       //set rpm curve to match physical afterburner detent
+SetJCurve(&Throttle, THR_RIGHT, 80, 95);
+
+//Joystick main buttons------------------------------------------------------------------------------
+MapKey(&Joystick, TG1, Weapon_Fire);															//weapon fire
+MapKey(&Joystick, TG2, 0);																		//kill TG2
+
+MapKeyIO(&Joystick, S1, EXEC("TrimDXAxis(DX_X_AXIS, SET(0));TrimDXAxis(DX_Y_AXIS, SET(0));"),//cancel trim
+						PULSE+USB[0x06]);												//Switch to cannon
+MapKey(&Joystick, S2, Salvo_Mode);														//Salvo_Mode
+MapKey(&Joystick, S3, Weapon_Change);													//Weapon_Change
+MapKey(&Joystick, S4, 0);																//shift button
+
+//Hat 1 is DirecX POV and Hardware Trim--------------------------------------------------------------
+MapKeyIO(&Joystick, H1U,REXEC(0, 100, "TrimDXAxis(DX_Y_AXIS, -5);"),						//Trim Down
+						DXHATUP);															//DX POV
+						
+MapKeyIO(&Joystick, H1D,REXEC(0, 100, "TrimDXAxis(DX_Y_AXIS, 5);"),							//Trim Up
+						DXHATDOWN);															//DX POV
+						
+MapKeyIO(&Joystick, H1L,REXEC(1, 100, "TrimDXAxis(DX_X_AXIS, -5);"),						//Trim Left
+						DXHATLEFT);															//DX POV
+						
+MapKeyIO(&Joystick, H1R,REXEC(1, 100, "TrimDXAxis(DX_X_AXIS, 5);"),							//Trim Right
+						DXHATRIGHT);														//DX POV
+
+
+//Hat 2----------------------------------------------------------------------------------------------
+MapKeyUMD(&Joystick, H2U, 
+						_2__Beyond_Visual_Range_Mode,
+						_1__Navigation_Modes,
+						_7__Air_To_Ground_Mode);
+							
+
+MapKeyUMD(&Joystick, H2D, 
+						_4__Close_Air_Combat_Bore_Mode,
+						_1__Navigation_Modes,
+						_8__Gunsight_Reticle_Switch);	
+//
+MapKeyUMD(&Joystick, H2L, 
+						_3__Close_Air_Combat_Vertical_Scan_Mode,
+						_1__Navigation_Modes,
+						_7__Air_To_Ground_Mode);	
+
+MapKeyUMD(&Joystick, H2R, 
+						_5__Close_Air_Combat_HMD_Helmet_Mode,
+						_1__Navigation_Modes,
+						_8__Gunsight_Reticle_Switch);	
+
+
+//Hat3------------------------------------------------------------------------------------------------
+MapKeyUMD(&Joystick, H3U,
+						Display_Zoom_Out,
+						_Next_Waypoint__Airfield_Or_Target,
+						0);
+						
+MapKeyUMD(&Joystick, H3D,
+						Display_Zoom_In,
+						_Next_Waypoint__Airfield_Or_Target,
+						0);
+
+MapKey(&Joystick, H3L, Electro_Optical_System_On_Off);								
+MapKey(&Joystick, H3R, Radar_On_Off);			
+
+// HAT 4 Counter measure Management------------------------------------------------------------------- 
+// HAT4 use a custom made chaff and flare sequence
+Chaff_Flare_program_1 = CHAIN(
+                                    PULSE+INS,D(400),
+                                    PULSE+INS,D(400),
+                                    PULSE+DEL,D(400),
+                                    PULSE+DEL,D(400),
+                                    PULSE+INS,D(400),
+                                    PULSE+INS,D(400),
+                                    PULSE+DEL,D(400),
+                                    PULSE+DEL);
+
+MapKey(&Joystick, H4U, REXEC(0, 6800, "ActKey(KEYON+Chaff_Flare_program_1);")); 
+MapKeyIO(&Joystick, H4D, EXEC("StopAutoRepeat(1);"),											//H4D /In garanteed stop progamm
+							 SEQ( 
+							 	REXEC(1, 6000, "ActKey(KEYON+Chaff_Flare_program_1);", RNOSTOP),//loop for chaff and flare
+							 	EXEC("StopAutoRepeat(1);")										//stop loop
+							 ));
+MapKey(&Joystick, H4L, Countermeasures_Chaff_Dispense); //Flare							
+MapKey(&Joystick, H4R, Countermeasures_Flares_Dispense); //chaff							
+MapKey(&Joystick, H4P, ECM); //ECM
+
+
+//----------------------------------------------------------------------------------------------------
+//THROTTLE--------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
+//ENGINE PANEL, Idle detent use flags
+
+MapKey(&Throttle, EFLNORM, PULSE+0);										//
+MapKey(&Throttle, EFRNORM, PULSE+0);										//
+MapKey(&Throttle, EFLOVER, PULSE+0);										//
+MapKey(&Throttle, EFROVER, PULSE+0);										//
+
+MapKey(&Throttle, APUON, PULSE+Landing_Gear_Up); 											//Landing_Gear_Up
+MapKey(&Throttle, APUOFF, PULSE+Landing_Gear_Down);										//Landing Gear Down
+
+MapKey(&Throttle, LDGH, Weapons_Jettison);											//Weapons_Jettison
+
+MapKey(&Throttle, FLAPU, PULSE+Flaps_Up); //Flaps Up 
+MapKeyR(&Throttle, FLAPU, PULSE+Flaps_Up_Down);
+MapKey(&Throttle, FLAPM, 0);
+MapKey(&Throttle, FLAPD, PULSE+Flaps_Landing_Position); //Flaps Landing
+MapKeyR(&Throttle, FLAPD, PULSE+Flaps_Up_Down);
+
+
+//Idle Left
+MapKey(&Throttle, IDLELON, EXEC("idleLeft=1;")); //idle
+MapKey(&Throttle, IDLELOFF, EXEC("idleLeft=0;"));
+//Idle Right
+MapKey(&Throttle, IDLERON, EXEC("idleRight=1;")); //idle
+MapKey(&Throttle, IDLEROFF, EXEC("idleRight=0;"));
+
+MapKey(&Throttle, EOLIGN, EXEC("if(idleLeft==0) ActKey(PULSE+KEYON+R_ALT+USB[0x4a]);")); //Start Left Engine
+MapKey(&Throttle, EORIGN, EXEC("if(idleRight==0) ActKey(PULSE+KEYON+R_CTL+USB[0x4a]);")); //Start Right Engine
+
+MapKey(&Throttle, EOLMOTOR, EXEC("if(idleLeft) ActKey(PULSE+KEYON+R_ALT+USB[0x4d]);")); //Stop Left Engine
+MapKey(&Throttle, EORMOTOR, EXEC("if(idleRight) ActKey(PULSE+KEYON+R_CTL+USB[0x4d]);")); //Stop Right Engine
+
+
+
+//Auto Pilot Panel
+MapKey(&Throttle, EACON, 0); 												//free
+MapKey(&Throttle, EACOFF,0); 												//free	
+MapKey(&Throttle, RDRNRM,0);												//used by autopilot function
+MapKey(&Throttle, RDRDIS, 0);												//used by autopilot function
+//APENG using Autopilot custom function
+//Laste switch managed by custom function
+
+//Throttle Left Arm-----------------------------------------------------------------------------------
+MapKey(&Throttle, PSF, PULSE+Navigation_lights); 										//Navigation_lights
+MapKeyR(&Throttle, PSF, PULSE+Navigation_lights); 									//Navigation_lights off
+MapKey(&Throttle, PSM, 0); 														//killed
+MapKey(&Throttle, PSB, PULSE+Smoke); 													//Smoke	on
+MapKeyR(&Throttle, PSB, PULSE+Smoke); 												//Smoke off
+
+//synchro Autopilot LTB/APENG
+Function_Autopilot = SEQ(EXEC("apkey();"), PULSE+L_ALT+'9');
+
+MapKey(&Throttle, LTB, Function_Autopilot);
+MapKey(&Throttle, APENG, Function_Autopilot); 
+
+//THrottle Right ARM----------------------------------------------------------------------------------
+MapKey(&Throttle, SC, Target_Lock);											//Target_Lock
+
+
+
+
+//throttle Coolie Switch
+MapKey(&Throttle, CSU, Scan_Zone_Up);										//Scan_Zone_Up
+MapKey(&Throttle, CSD, Scan_Zone_Down);										//Scan_Zone_Down
+						
+MapKey(&Throttle, CSL,Scan_Zone_Left);										//Scan_Zone_Left
+MapKey(&Throttle, CSR,Scan_Zone_Right);										//Scan_Zone_Right
+
+MapKey(&Throttle, MSP, 0); 												//use for teamspeak
+MapKey(&Throttle, MSU, PULSE+Flight_Attack_air_defenses); 					//Flight_Attack_air_defenses
+MapKey(&Throttle, MSD, PULSE+Flight_Attack_ground_targets); 					//Flight_Attack_ground_targets
+MapKey(&Throttle, MSL, PULSE+Cover_Me); 										//cover me
+MapKey(&Throttle, MSR, PULSE+Attack_My_Target); 								//Attack_My_Target
+
+MapKey(&Throttle, SPDF, PULSE+Airbrake_On); 							// Airbrake On
+MapKey(&Throttle, SPDM, PULSE+Airbrake_Off); 							// Airbrake Off
+MapKey(&Throttle, SPDB, PULSE+Airbrake_On); 							// Airbrake on MOM
+
+MapKey(&Throttle, BSF, PULSE+_2__Beyond_Visual_Range_Mode); 			//Beyond_Visual_Range_Mode
+MapKey(&Throttle, BSM, PULSE+_1__Navigation_Modes); 							//_1__Navigation_Modes
+MapKey(&Throttle, BSB, PULSE+_7__Air_To_Ground_Mode); 						//_7__Air_To_Ground_Mode
+
+
+
+
+//China Hat is used for Modes selection---------------
+MapKey(&Throttle, CHF, Target_Specified_Size_Increase); // Target_Specified_Size_Increase
+MapKey(&Throttle, CHB, Target_Specified_Size_Decrease); // Target_Specified_Size_Decrease
+
+}
+
+//special fonction for Laste and Autopilot management.
+int apkey()
+{
+if(Throttle[APPAT]) ActKey(KEYON+PULSE+Autopilot_Route_following); 
+else if(Throttle[APALT] & Throttle[RDRDIS]) ActKey(KEYON+PULSE+Autopilot_Barometric_Altitude_Hold); 
+else if (Throttle[APALT] & Throttle[RDRNRM]) ActKey(KEYON+PULSE+Autopilot_Radar_Altitude_Hold); 
+else ActKey(KEYON+PULSE+Autopilot_Altitude_And_Roll_Hold); // APAH
+}
+
+int EventHandle(int type, alias o, int x)
+{
+    DefaultMapping(&o, x);
+}

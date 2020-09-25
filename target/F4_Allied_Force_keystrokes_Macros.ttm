@@ -1,0 +1,584 @@
+// --------------------------------------------------- F4 ALLIED FORCE T.A.R.G.E.T Macros File ------------------------------------------------------
+
+
+
+
+// Ckpit **********************
+
+
+define AFBrakesIn	L_CTL+USB[0x05]		//Ckpit-Air brakes close
+define AFBrakesOut	L_SHIFT+USB[0x05]		//Ckpit-Air brakes open
+define AFBrakesToggle	USB[0x05]		//Ckpit-Air brakes toggle
+define SimDecAirSource	L_CTL+L_SHIFT+USB[0x3C]		//Ckpit-Air Source Dec
+define SimIncAirSource	L_CTL+L_SHIFT+USB[0x3D]		//Ckpit-Air Source Inc
+define SimToggleExtLights	L_SHIFT+L_ALT+USB[0x0F]		//Ckpit-Aircraft lights
+define DecreaseAlow	L_ALT+USB[0x36]		//Ckpit-ALOW altitude dec
+define IncreaseAlow	L_ALT+USB[0x37]		//Ckpit-ALOW altitude inc
+define AFAlternateGear	L_SHIFT+L_CTL+L_ALT+USB[0x0A]		//Ckpit-Alternate Landing Gear
+define SimAPOverride	L_CTL+USB[0x20]		//Ckpit-AP Override
+define SimLeftAPSwitch	L_CTL+USB[0x1E]		//Ckpit-AP Switch Left
+define SimRightAPSwitch	L_CTL+USB[0x1F]		//Ckpit-AP Switch Right
+define SimToggleAutopilot	USB[0x04]		//Ckpit-Autopilot
+define SimToggleAuxComAATR	L_ALT+USB[0x3F]		//Ckpit-Aux Comm AA/TR
+define SimCycleBandAuxComDigit	L_ALT+USB[0x3D]		//Ckpit-Aux Comm Band X/Y
+define SimCycleCenterAuxComDigit	L_ALT+USB[0x3B]		//Ckpit-Aux Comm Ctr digit
+define SimCycleLeftAuxComDigit	L_ALT+USB[0x3A]		//Ckpit-Aux Comm Lft digit
+define SimCycleRightAuxComDigit	L_ALT+USB[0x3C]		//Ckpit-Aux Comm Rt digit
+define SimToggleAuxComMaster	L_ALT+USB[0x3E]		//Ckpit-Aux Comm UFC/Backup
+define SimAVTRToggle	USB[0x09]		//Ckpit-AVTR
+define SimAVTRSwitch	L_ALT+USB[0x09]		//Ckpit-AVTR Switch
+define SimAVTRSwitchBack	USB[0x00]		//Ckpit-AVTR Switch back
+define SimSilenceHorn	L_CTL+USB[0x0A]		//Ckpit-Betty gear horn
+define ExtinguishMasterCaution	L_CTL+USB[0x06]		//Ckpit-Betty Master Caution
+define SimCATSwitch	L_SHIFT+USB[0x06]		//Ckpit-CAT I/III
+define SimToggleDropPattern	L_ALT+USB[0x1D]		//Ckpit-Chaff/Flare auto/manual
+define AFDragChute	L_SHIFT+USB[0x07]		//Ckpit-Deploy Drag Chute
+define SimSelectSRMOverride	USB[0x07]		//Ckpit-Dogfight override mode
+define SimDropChaff	USB[0x1B]		//Ckpit-Drop chaff
+define SimDropFlare	USB[0x1D]		//Ckpit-Drop flare
+define SimFuelDump	L_ALT+USB[0x07]		//Ckpit-Dump Fuel
+define SimECMOn	USB[0x0D]		//Ckpit-ECM
+define SimEject	L_CTL+USB[0x08]		//Ckpit-Eject
+define SimEpuToggle	L_ALT+USB[0x08]		//Ckpit-EPU step
+define SimICPFAck	L_CTL+USB[0x09]		//Ckpit-F ACK
+define SimFCCSubModeStep	USB[0x34]		//Ckpit-FCC submodes
+define SimFuelDoorToggle	L_CTL+L_SHIFT+USB[0x15]		//Ckpit-Fuel Door
+define SimToggleMasterFuel	L_CTL+L_SHIFT+USB[0x40]		//Ckpit-Fuel Master Switch
+define SimDecFuelPump	L_CTL+L_SHIFT+USB[0x3E]		//Ckpit-Fuel Pump Switch Dec
+define SimIncFuelPump	L_CTL+L_SHIFT+USB[0x3F]		//Ckpit-Fuel Pump Switch Inc
+define SimDecFuelSwitch	L_CTL+L_SHIFT+USB[0x3A]		//Ckpit-Fuel Switch Dec
+define SimIncFuelSwitch	L_CTL+L_SHIFT+USB[0x3B]		//Ckpit-Fuel Switch Inc
+define SimGndJettEnable	L_ALT+USB[0x0D]		//Ckpit-Ground Jett enable
+define SimHookToggle	L_CTL+USB[0x0E]		//Ckpit-Hook
+define SimStepSMSRight	USB[0x00]		//Ckpit-IFF Master
+define SimINSDec	L_CTL+L_ALT+USB[0x40]		//Ckpit-INS Dec
+define SimINSInc	L_CTL+L_ALT+USB[0x41]		//Ckpit-INS Inc
+define SimInteriorLight	L_CTL+L_SHIFT+USB[0x0F]		//Ckpit-Instrument lights
+define SimEmergencyJettison	L_CTL+USB[0x0D]		//Ckpit-Jettison all
+define SimJfsStart	L_SHIFT+USB[0x0D]		//Ckpit-JFS switch
+define KneeboardTogglePage	L_ALT+USB[0x0E]		//Ckpit-Kneeboard page
+define AFGearToggle	USB[0x0A]		//Ckpit-Landing gear
+define AFGearDown	L_ALT+USB[0x0A]		//Ckpit-Landing gear Down
+define AFGearUp	L_SHIFT+USB[0x0A]		//Ckpit-Landing gear Up
+define SimLandingLightToggle	L_CTL+L_ALT+USB[0x0F]		//Ckpit-Landing light
+define SimLaserArmToggle	L_ALT+USB[0x0F]		//Ckpit-Laser Arm
+define SimMPOToggle	USB[0x12]		//Ckpit-Manual pitch override
+define SimStepMasterArm	L_SHIFT+L_CTL+L_ALT+USB[0x10]		//Ckpit-Master Arm cycle
+define SimArmMasterArm	L_SHIFT+USB[0x10]		//Ckpit-Master Arm on
+define SimSafeMasterArm	L_CTL+USB[0x10]		//Ckpit-Master Arm safe
+define SimSimMasterArm	L_ALT+USB[0x10]		//Ckpit-Master Arm sim
+define SimSelectMRMOverride	USB[0x10]		//Ckpit-MRM override mode
+define SimDeselectOverride	USB[0x06]		//Ckpit-MRM/DF override cancel
+define ToggleNVGMode	USB[0x11]		//Ckpit-NVG
+define AFCanopyToggle	L_CTL+L_SHIFT+USB[0x06]		//Ckpit-Open/Close canopy
+define SimParkingBrakeToggle	L_ALT+USB[0x13]		//Ckpit-Parking brake
+define SimDLPower	L_SHIFT+L_ALT+USB[0x44]		//Ckpit-Power Datalink
+define SimFCCPower	L_SHIFT+L_ALT+USB[0x3F]		//Ckpit-Power FCC
+define SimFCRPower	L_SHIFT+L_ALT+USB[0x3E]		//Ckpit-Power FCR
+define SimGPSPower	L_SHIFT+L_ALT+USB[0x43]		//Ckpit-Power GPS
+define SimHUDPower	L_SHIFT+L_ALT+USB[0x3B]		//Ckpit-Power HUD
+define SimLeftHptPower	L_SHIFT+L_ALT+USB[0x3C]		//Ckpit-Power Left Hpt
+define SimMainPowerDec	L_CTL+L_ALT+USB[0x3A]		//Ckpit-Power Main Dec
+define SimMainPowerInc	L_CTL+L_ALT+USB[0x3B]		//Ckpit-Power Main Inc
+define SimMAPPower	L_SHIFT+L_ALT+USB[0x45]		//Ckpit-Power MAP
+define SimMFDPower	L_SHIFT+L_ALT+USB[0x41]		//Ckpit-Power MFD
+define SimRightHptPower	L_SHIFT+L_ALT+USB[0x3D]		//Ckpit-Power Right Hpt
+define SimSMSPower	L_SHIFT+L_ALT+USB[0x40]		//Ckpit-Power SMS
+define SimTISLPower	L_SHIFT+L_ALT+USB[0x3A]		//Ckpit-Power TISL
+define SimUFCPower	L_SHIFT+L_ALT+USB[0x42]		//Ckpit-Power UFC
+define SimRALTOFF	L_ALT+USB[0x04]		//Ckpit-Radar Altimeter OFF
+define SimRALTON	L_SHIFT+USB[0x04]		//Ckpit-Radar Altimeter ON
+define SimRALTSTDBY	L_CTL+USB[0x04]		//Ckpit-Radar Altimeter STDBY
+define AFAlternateGearReset	L_CTL+L_SHIFT+USB[0x0A]		//Ckpit-Reset Alt Gear Extension
+define SimSeatArm	L_CTL+L_SHIFT+USB[0x08]		//Ckpit-SeatArm
+define SimNextWaypoint	USB[0x16]		//Ckpit-Steerpoint next
+define SimPrevWaypoint	L_SHIFT+USB[0x16]		//Ckpit-Steerpoint previous
+define SimToggleTFR	L_CTL+L_SHIFT+USB[0x04]		//Ckpit-Terrain Following Radar
+define SimToggleUHFMaster	L_ALT+USB[0x40]		//Ckpit-UHF Normal/Backup
+define SimInhibitVMS	L_CTL+USB[0x19]		//Ckpit-VMS Inhibit
+define SimWheelBrakes	USB[0x0E]		//Ckpit-Wheel brakes
+
+
+// Comm **********************
+
+
+define SimStepComm1VolumeDown	L_CTL+L_ALT+USB[0x2F]		//Comm-1 Volume Down
+define SimStepComm1VolumeUp	L_CTL+L_ALT+USB[0x30]		//Comm-1 Volume up
+define SimStepComm2VolumeDown	L_SHIFT+L_CTL+L_ALT+USB[0x2F]		//Comm-2 Volume Down
+define SimStepComm2VolumeUp	L_SHIFT+L_CTL+L_ALT+USB[0x30]		//Comm-2 Volume up
+
+
+// Ctrls **********************
+
+
+define AFABFull	L_CTL+USB[0x2E]		//Ctrls-Full afterburner
+define AFABOn	L_CTL+USB[0x2D]		//Ctrls-Min Afterburner
+define AFElevatorDown	L_CTL+L_SHIFT+USB[0x52]		//Ctrls-Nose down
+define AFElevatorUp	L_CTL+L_SHIFT+USB[0x51]		//Ctrls-Nose up
+define AFAileronLeft	L_CTL+L_SHIFT+USB[0x50]		//Ctrls-Roll left
+define AFAileronRight	L_CTL+L_SHIFT+USB[0x4F]		//Ctrls-Roll right
+define AFRudderLeft	USB[0x36]		//Ctrls-Rudder left
+define AFRudderRight	USB[0x37]		//Ctrls-Rudder right
+define AFCoarseThrottleDown	L_SHIFT+USB[0x2D]		//Ctrls-Step throttle down
+define AFCoarseThrottleUp	L_SHIFT+USB[0x2E]		//Ctrls-Step throttle up
+define AFThrottleDown	USB[0x2D]		//Ctrls-Throttle back
+define AFThrottleUp	USB[0x2E]		//Ctrls-Throttle forward
+define AFIdle	L_ALT+USB[0x2D]		//Ctrls-Throttle Idle
+define SimThrottleIdleDetent	L_ALT+USB[0x0C]		//Ctrls-Throttle Idle Detent
+
+
+// Easy Radar **********************
+
+
+define SimRadarBoresightEnemy	L_SHIFT+USB[0x15]		//Easy Radar-Boresight Enemy
+define SimRadarBoresightFriendly	L_SHIFT+USB[0x1C]		//Easy Radar-Boresight Friendly
+define SimRadarClosestEnemy	USB[0x00]		//Easy Radar-Closest Enemy
+define SimRadarClosestFriendly	USB[0x00]		//Easy Radar-Closest Friendly
+define SimRadarNextEnemy	USB[0x00]		//Easy Radar-Next Enemy
+define SimRadarNextFriendly	USB[0x00]		//Easy Radar-Next Friendly
+define SimRadarPreviousEnemy	L_SHIFT+USB[0x08]		//Easy Radar-Previous Enemy
+define SimRadarPreviousFriendly	L_SHIFT+USB[0x17]		//Easy Radar-Previous Friendly
+
+
+// EWS **********************
+
+
+define SimEWSChaffPower	L_CTL+L_ALT+USB[0x3C]		//EWS-Chaff Power
+define SimEWSFlarePower	L_CTL+L_ALT+USB[0x3D]		//EWS-Flare Power
+define SimEWSJammerPower	L_CTL+L_ALT+USB[0x3E]		//EWS-Jammer Power
+define SimEWSPGMDec	L_SHIFT+USB[0x1D]		//EWS-PGM Dec
+define SimEWSPGMInc	L_SHIFT+USB[0x1B]		//EWS-PGM Inc
+define SimEWSProgDec	L_SHIFT+USB[0x14]		//EWS-Program Dec
+define SimEWSProgInc	L_SHIFT+USB[0x1A]		//EWS-Program Inc
+define SimEWSRWRPower	L_CTL+L_ALT+USB[0x3F]		//EWS-RWR Power
+
+
+// FAC **********************
+
+
+define FACCheckIn	USB[0x00]		//FAC-Check In
+define FACCheckOut	USB[0x00]		//FAC-Check Out
+define FACIn	USB[0x00]		//FAC-In
+define FACOut	USB[0x00]		//FAC-Out
+define FACRequestBDA	USB[0x00]		//FAC-Request BDA
+define FACRequestLocation	USB[0x00]		//FAC-Request Location
+define FACRequestMark	USB[0x00]		//FAC-Request Mark
+define FACRequestTACAN	USB[0x00]		//FAC-Request TACAN
+define FACRequestTarget	USB[0x00]		//FAC-Request Target
+
+
+// Flaps **********************
+
+
+define AFDecFlap	L_CTL+USB[0x44]		//Flaps-Decrease
+define AFDecLEF	L_ALT+USB[0x44]		//Flaps-Decrease LEF
+define AFIncFlap	L_CTL+USB[0x45]		//Flaps-Increase
+define AFIncLEF	L_ALT+USB[0x45]		//Flaps-Increase LEF
+define SimAltFlaps	USB[0x00]		//Flaps-LE Normal/Extend
+define SimLEFLockSwitch	L_CTL+USB[0x22]		//Flaps-Lock LEFs
+define AFFullLEF	L_ALT+USB[0x43]		//Flaps-Set LEF to Full
+define AFNoLEF	L_ALT+USB[0x42]		//Flaps-Set LEF to Null
+define AFFullFlap	L_CTL+USB[0x43]		//Flaps-Set to Full
+define AFNoFlap	L_CTL+USB[0x42]		//Flaps-Set to Null
+
+
+// HOTAS **********************
+
+
+define SimCursorEnable	L_SHIFT+USB[0x11]		//HOTAS-Cursor enable
+define SimDMSDown	L_SHIFT+USB[0x5A]		//HOTAS-DMS Down
+define SimDMSLeft	L_SHIFT+USB[0x5C]		//HOTAS-DMS Left
+define SimDMSUp	L_SHIFT+USB[0x60]		//HOTAS-DMS Up
+define SimTriggerFirstDetent	L_CTL+USB[0x38]		//HOTAS-First Trigger Detent
+define SimPinkySwitch	L_ALT+USB[0x19]		//HOTAS-Pinky Switch
+define SimTriggerSecondDetent	L_ALT+USB[0x38]		//HOTAS-Second Trigger Detent
+define SimTMSDown	L_CTL+USB[0x51]		//HOTAS-TMS Down
+define SimTMSLeft	L_CTL+USB[0x50]		//HOTAS-TMS Left
+define SimTMSRight	L_CTL+USB[0x4F]		//HOTAS-TMS Right
+define SimTMSUp	L_CTL+USB[0x52]		//HOTAS-TMS Up
+
+
+// HSI **********************
+
+
+define SimHsiCourseDec	L_CTL+L_ALT+USB[0x19]		//HSI-Course decrement
+define SimHsiCourseInc	L_CTL+L_ALT+USB[0x05]		//HSI-Course increment
+define SimHsiHeadingDec	L_CTL+L_ALT+USB[0x11]		//HSI-Heading decrement
+define SimHsiHeadingInc	L_CTL+L_ALT+USB[0x10]		//HSI-Heading increment
+define SimStepHSIMode	USB[0x0C]		//HSI-Modes toggle
+
+
+// HUD **********************
+
+
+define SimHUDRadar	L_SHIFT+L_CTL+L_ALT+USB[0x04]		//HUD-Altimeter type
+define SimHUDBrightness	L_SHIFT+L_CTL+L_ALT+USB[0x05]		//HUD-Brightness
+define SimHUDBrightnessDown	L_SHIFT+L_CTL+L_ALT+USB[0x1D]		//HUD-Brightness Down
+define SimHUDBrightnessUp	L_SHIFT+L_CTL+L_ALT+USB[0x1B]		//HUD-Brightness Up
+define OTWStepHudColor	L_SHIFT+L_CTL+L_ALT+USB[0x06]		//HUD-Color
+define SimHUDDED	L_SHIFT+L_CTL+L_ALT+USB[0x07]		//HUD-Display DED
+define SimFLIRToggle	L_SHIFT+USB[0x0B]		//HUD-Display FLIR
+define OTWStepHeadingScale	L_SHIFT+L_CTL+L_ALT+USB[0x16]		//HUD-Heading scales
+define SimRetDn	L_CTL+USB[0x2F]		//HUD-Man.Bomb Reticle Down
+define SimRetUp	L_CTL+USB[0x30]		//HUD-Man.Bomb Reticle Up
+define OTWTogglePitchLadder	L_SHIFT+L_CTL+L_ALT+USB[0x13]		//HUD-Pitch ladder
+define OTWToggleScales	USB[0x0B]		//HUD-Scale type
+define SimHUDVelocity	L_SHIFT+L_CTL+L_ALT+USB[0x19]		//HUD-Velocity cues
+define SimWarnReset	L_SHIFT+L_CTL+L_ALT+USB[0x1A]		//HUD-Warning reset
+
+
+// ICP **********************
+
+
+define SimICPZERO	L_CTL+USB[0x62]		//ICP-0 M-SEL
+define SimICPTILS	L_CTL+USB[0x5F]		//ICP-1 ILS
+define SimICPALOW	L_CTL+USB[0x60]		//ICP-2 ALOW
+define SimICPTHREE	L_CTL+USB[0x61]		//ICP-3
+define SimICPStpt	L_CTL+USB[0x5C]		//ICP-4 STPT
+define SimICPCrus	L_CTL+USB[0x5D]		//ICP-5 CRUS
+define SimICPSIX	L_CTL+USB[0x5E]		//ICP-6 TIME
+define SimICPMark	L_CTL+USB[0x59]		//ICP-7 MARK
+define SimICPEIGHT	L_CTL+USB[0x5A]		//ICP-8 FIX
+define SimICPNINE	L_CTL+USB[0x5B]		//ICP-9 A-CAL
+define SimICPAA	L_SHIFT+USB[0x62]		//ICP-AA
+define SimICPAG	L_SHIFT+USB[0x63]		//ICP-AG
+define SimICPCom1	L_SHIFT+USB[0x54]		//ICP-COM1
+define SimICPCom2	L_SHIFT+USB[0x55]		//ICP-COM2
+define SimICPDEDDOWN	L_CTL+USB[0x4D]		//ICP-DCS Down
+define SimICPResetDED	L_CTL+USB[0x49]		//ICP-DCS Return
+define SimICPDEDSEQ	L_CTL+USB[0x4B]		//ICP-DCS Seq
+define SimICPDEDUP	L_CTL+USB[0x4A]		//ICP-DCS Up
+define SimICPLink	L_CTL+USB[0x07]		//ICP-DLNK
+define SimDriftCO	L_CTL+USB[0x4E]		//ICP-Drift C/O
+define SimICPEnter	L_CTL+USB[0x58]		//ICP-Enter
+define SimICPIFF	L_SHIFT+USB[0x5F]		//ICP-IFF
+define SimICPLIST	L_SHIFT+USB[0x61]		//ICP-LIST
+define SimICPNav	L_SHIFT+USB[0x58]		//ICP-NAV
+define SimICPNext	L_CTL+USB[0x57]		//ICP-Next
+define SimICPPrevious	L_CTL+USB[0x56]		//ICP-Previous
+define SimICPCLEAR	L_CTL+USB[0x4C]		//ICP-Reset
+define SimSymWheelDn	USB[0x00]		//ICP-Sym Wheel Down
+define SimSymWheelUp	USB[0x00]		//ICP-Sym Wheel Up
+
+
+// Key **********************
+
+
+define CommandsSetKeyCombo	L_CTL+USB[0x1D]		//Key-Combination Ctrl-Z
+
+
+// Landing **********************
+
+
+define ToggleLandingHelpMode	L_ALT+USB[0x0B]		//Landing Help Toggle
+
+
+// LeftMFD **********************
+
+
+define SimCBEOSB_GAINDOWN_L	L_CTL+L_ALT+USB[0x09]		//LeftMFD-Brightness Down
+define SimCBEOSB_GAINUP_L	L_CTL+L_ALT+USB[0x0A]		//LeftMFD-Brightness Up
+define SimCBEOSB_1L	L_CTL+L_ALT+USB[0x1E]		//LeftMFD-OSB 01
+define SimCBEOSB_2L	L_CTL+L_ALT+USB[0x1F]		//LeftMFD-OSB 02
+define SimCBEOSB_3L	L_CTL+L_ALT+USB[0x20]		//LeftMFD-OSB 03
+define SimCBEOSB_4L	L_CTL+L_ALT+USB[0x21]		//LeftMFD-OSB 04
+define SimCBEOSB_5L	L_CTL+L_ALT+USB[0x22]		//LeftMFD-OSB 05
+define SimCBEOSB_6L	L_CTL+L_ALT+USB[0x23]		//LeftMFD-OSB 06
+define SimCBEOSB_7L	L_CTL+L_ALT+USB[0x24]		//LeftMFD-OSB 07
+define SimCBEOSB_8L	L_CTL+L_ALT+USB[0x25]		//LeftMFD-OSB 08
+define SimCBEOSB_9L	L_CTL+L_ALT+USB[0x26]		//LeftMFD-OSB 09
+define SimCBEOSB_10L	L_CTL+L_ALT+USB[0x27]		//LeftMFD-OSB 10
+define SimCBEOSB_11L	L_CTL+L_ALT+USB[0x59]		//LeftMFD-OSB 11
+define SimCBEOSB_12L	L_CTL+L_ALT+USB[0x5A]		//LeftMFD-OSB 12
+define SimCBEOSB_13L	L_CTL+L_ALT+USB[0x5B]		//LeftMFD-OSB 13
+define SimCBEOSB_14L	L_CTL+L_ALT+USB[0x5C]		//LeftMFD-OSB 14
+define SimCBEOSB_15L	L_CTL+L_ALT+USB[0x5D]		//LeftMFD-OSB 15
+define SimCBEOSB_16L	L_CTL+L_ALT+USB[0x5E]		//LeftMFD-OSB 16
+define SimCBEOSB_17L	L_CTL+L_ALT+USB[0x5F]		//LeftMFD-OSB 17
+define SimCBEOSB_18L	L_CTL+L_ALT+USB[0x60]		//LeftMFD-OSB 18
+define SimCBEOSB_19L	L_CTL+L_ALT+USB[0x61]		//LeftMFD-OSB 19
+define SimCBEOSB_20L	L_CTL+L_ALT+USB[0x62]		//LeftMFD-OSB 20
+
+
+// Lights **********************
+
+
+define SimExtlAntiColl	L_CTL+L_ALT+USB[0x43]		//Lights-Extl Anti Coll
+define SimExtlPower	L_CTL+L_ALT+USB[0x42]		//Lights-Extl Power
+define SimExtlSteady	L_CTL+L_ALT+USB[0x45]		//Lights-Extl Steady
+define SimExtlWing	L_CTL+L_ALT+USB[0x44]		//Lights-Extl Wing
+define SimMalIndLights	L_CTL+USB[0x17]		//Lights-Test
+
+
+// MFD **********************
+
+
+define OTWStepMFD1	USB[0x2F]		//MFD-Step 1
+define OTWStepMFD2	USB[0x30]		//MFD-Step 2
+define OTWStepMFD3	L_SHIFT+USB[0x30]		//MFD-Step 3
+define OTWStepMFD4	L_SHIFT+USB[0x2F]		//MFD-Step 4
+
+
+// Radar **********************
+
+
+define SimACM30x20	L_CTL+USB[0x3F]		//Radar-ACM 30x20
+define SimACMBoresight	L_CTL+USB[0x3E]		//Radar-ACM boresight
+define SimACMSlew	L_CTL+USB[0x40]		//Radar-ACM slewable
+define SimACMVertical	L_CTL+USB[0x41]		//Radar-ACM vertical
+define SimRadarAAModeStep	USB[0x3A]		//Radar-Air to Air
+define SimRadarAGModeStep	USB[0x3B]		//Radar-Air to Ground
+define SimRadarElevationCenter	USB[0x3F]		//Radar-Antenna center
+define SimRadarElevationDown	USB[0x3E]		//Radar-Antenna tilt down
+define SimRadarElevationUp	USB[0x40]		//Radar-Antenna tilt up
+define SimRadarBarScanChange	L_SHIFT+USB[0x41]		//Radar-Bar scan
+define SimCursorDown	USB[0x51]		//Radar-Cursor down
+define SimCursorLeft	USB[0x50]		//Radar-Cursor left
+define SimCursorRight	USB[0x4F]		//Radar-Cursor right
+define SimCursorUp	USB[0x52]		//Radar-Cursor up
+define SimRadarCursorZero	L_SHIFT+USB[0x51]		//Radar-cursors reset
+define SimDesignate	USB[0x62]		//Radar-Designate target
+define SimRadarGainDown	L_SHIFT+USB[0x3C]		//Radar-gain decrease
+define SimRadarGainUp	L_SHIFT+USB[0x3D]		//Radar-gain increase
+define SimRadarFOVStep	L_SHIFT+USB[0x42]		//Radar-GM FOV
+define SimRadarFreeze	USB[0x43]		//Radar-GM picture freeze
+define SimRadarSnowplow	L_SHIFT+USB[0x43]		//Radar-GM snowplow
+define SimHSDRangeStepDown	L_SHIFT+USB[0x44]		//Radar-HSD range decrease
+define SimHSDRangeStepUp	L_SHIFT+USB[0x45]		//Radar-HSD range increase
+define SimRadarNextTarget	USB[0x4E]		//Radar-lock next target
+define SimRadarPrevTarget	USB[0x4C]		//Radar-lock previous target
+define SimMaverickFOVStep	L_SHIFT+USB[0x19]		//Radar-Maverick FOV
+define SimRadarRangeStepDown	USB[0x3C]		//Radar-range decrease
+define SimRadarRangeStepUp	USB[0x3D]		//Radar-range increase
+define SimRangeKnobDown	L_CTL+USB[0x3C]		//Radar-Range Knob Down
+define SimRangeKnobUp	L_CTL+USB[0x3D]		//Radar-Range Knob Up
+define SimDropTrack	USB[0x63]		//Radar-return to search
+define SimRFSwitch	L_SHIFT+L_ALT+USB[0x15]		//Radar-RF Inhibit
+define SimSOIFOVStep	USB[0x19]		//Radar-SOI FOV
+define SimRadarStandby	L_CTL+USB[0x15]		//Radar-standby
+define SimRadarAzimuthScanChange	USB[0x44]		//Radar-submodes/azimuth
+
+
+// Radio **********************
+
+
+define RadioTowerCommand	USB[0x17]		//Radio-ATC message
+define RadioAWACSCommand	USB[0x14]		//Radio-AWACS command
+define SimCycleRadioChannel	L_ALT+USB[0x1C]		//Radio-Channel cycle
+define RadioElementCommand	USB[0x08]		//Radio-Element command
+define RadioFlightCommand	USB[0x15]		//Radio-Flight command
+define RadioMenuCommand	USB[0x2B]		//Radio-Menu
+define OTWRadioMenuStep	CHAIN(USB[0x14], D(25), L_SHIFT+USB[0x14])		//Radio-next menu
+define OTWRadioMenuStepBack	CHAIN(L_SHIFT+USB[0x1A], D(25), USB[0x1A])		//Radio-previous menu
+define RadioMessageSend	USB[0x08]		//Radio-send message
+define RadioTankerCommand	USB[0x1C]		//Radio-Tanker message
+define RadioWingCommand	USB[0x1A]		//Radio-Wingman command
+
+
+// RightMFD **********************
+
+
+define SimCBEOSB_GAINDOWN_R	L_SHIFT+L_ALT+USB[0x09]		//RightMFD-Brightness Down
+define SimCBEOSB_GAINUP_R	L_SHIFT+L_ALT+USB[0x0A]		//RightMFD-Brightness Up
+define SimCBEOSB_1R	L_SHIFT+L_ALT+USB[0x1E]		//RightMFD-OSB 01
+define SimCBEOSB_2R	L_SHIFT+L_ALT+USB[0x1F]		//RightMFD-OSB 02
+define SimCBEOSB_3R	L_SHIFT+L_ALT+USB[0x20]		//RightMFD-OSB 03
+define SimCBEOSB_4R	L_SHIFT+L_ALT+USB[0x21]		//RightMFD-OSB 04
+define SimCBEOSB_5R	L_SHIFT+L_ALT+USB[0x22]		//RightMFD-OSB 05
+define SimCBEOSB_6R	L_SHIFT+L_ALT+USB[0x23]		//RightMFD-OSB 06
+define SimCBEOSB_7R	L_SHIFT+L_ALT+USB[0x24]		//RightMFD-OSB 07
+define SimCBEOSB_8R	L_SHIFT+L_ALT+USB[0x25]		//RightMFD-OSB 08
+define SimCBEOSB_9R	L_SHIFT+L_ALT+USB[0x26]		//RightMFD-OSB 09
+define SimCBEOSB_10R	L_SHIFT+L_ALT+USB[0x27]		//RightMFD-OSB 10
+define SimCBEOSB_11R	L_SHIFT+L_ALT+USB[0x59]		//RightMFD-OSB 11
+define SimCBEOSB_12R	L_SHIFT+L_ALT+USB[0x5A]		//RightMFD-OSB 12
+define SimCBEOSB_13R	L_SHIFT+L_ALT+USB[0x5B]		//RightMFD-OSB 13
+define SimCBEOSB_14R	L_SHIFT+L_ALT+USB[0x5C]		//RightMFD-OSB 14
+define SimCBEOSB_15R	L_SHIFT+L_ALT+USB[0x5D]		//RightMFD-OSB 15
+define SimCBEOSB_16R	L_SHIFT+L_ALT+USB[0x5E]		//RightMFD-OSB 16
+define SimCBEOSB_17R	L_SHIFT+L_ALT+USB[0x5F]		//RightMFD-OSB 17
+define SimCBEOSB_18R	L_SHIFT+L_ALT+USB[0x60]		//RightMFD-OSB 18
+define SimCBEOSB_19R	L_SHIFT+L_ALT+USB[0x61]		//RightMFD-OSB 19
+define SimCBEOSB_20R	L_SHIFT+L_ALT+USB[0x62]		//RightMFD-OSB 20
+
+
+// RWR **********************
+
+
+define SimRWRHandoff	L_SHIFT+USB[0x4E]		//RWR-Handoff
+define SimRWRSetGroundPriority	USB[0x4A]		//RWR-Low
+define SimRWRSetNaval	L_SHIFT+USB[0x4B]		//RWR-Naval
+define SimRwrPower	USB[0x00]		//RWR-Power
+define SimRWRSetPriority	USB[0x49]		//RWR-Priority
+define SimRWRSetSearch	L_SHIFT+USB[0x49]		//RWR-Search
+define SimRWRSetTargetSep	USB[0x4B]		//RWR-Target Separate
+define SimRWRSetUnknowns	L_SHIFT+USB[0x4A]		//RWR-Unknown
+
+
+// Sim **********************
+
+
+define TimeAccelerate	USB[0x39]		//Sim-2x time compression
+define TimeAccelerateMaxToggle	USB[0x00]		//Sim-4X time acceleration
+define OTWToggleAeroDisplay	CHAIN(USB[0x12], D(25), L_CTL+USB[0x1D])		//Sim-Aerodynamic Debug
+define OTWToggleAlpha	CHAIN(USB[0x04], D(25), L_CTL+USB[0x1B])		//Sim-alpha blending
+define OTWToggleBilinearFilter	CHAIN(USB[0x05], D(25), L_CTL+USB[0x1B])		//Sim-Bilinear filtering
+define OTWToggleGLOC	CHAIN(USB[0x05], D(25), L_CTL+USB[0x1D])		//Sim-Blackout/Redout
+define OTWSetScale	USB[0x00]		//Sim-BSS=17
+define CalibrateJoystick	CHAIN(USB[0x0D], D(25), L_ALT+USB[0x06])		//Sim-Calibrate Joystick
+define SimOpenChatBox	USB[0x35]		//Sim-Chat
+define OTWToggleRoof	CHAIN(USB[0x15], D(25), L_CTL+USB[0x1B])		//Sim-Cloud roof
+define OTWToggleClouds	CHAIN(USB[0x1A], D(25), L_CTL+USB[0x1B])		//Sim-clouds
+define LoadCockpitDefaults	CHAIN(USB[0x0F], D(25), L_ALT+USB[0x06])		//Sim-cockpit setup load
+define SaveCockpitDefaults	CHAIN(USB[0x16], D(25), L_ALT+USB[0x06])		//Sim-cockpit setup save
+define OTWStateStep	L_SHIFT+USB[0x2C]		//Sim-cycle object states
+define OTWToggleFrameRate	CHAIN(USB[0x15], D(25), L_CTL+USB[0x1D])		//Sim-Display frame rate
+define SimEndFlight	USB[0x29]		//Sim-Exit
+define KevinsFistOfGod	CHAIN(USB[0x0E], D(25), L_CTL+USB[0x1D])		//Sim-Fist of God
+define SimMotionFreeze	L_SHIFT+USB[0x13]		//Sim-Freeze
+define OTWToggleHaze	CHAIN(USB[0x0B], D(25), L_CTL+USB[0x1B])		//Sim-Haze
+define SimToggleInvincible	CHAIN(USB[0x1D], D(25), L_CTL+USB[0x1D])		//Sim-invincibility
+define OTWToggleCampNames	L_CTL+USB[0x0F]		//Sim-labels far
+define OTWToggleNames	L_SHIFT+USB[0x0F]		//Sim-labels near
+define SimMouseButton1	L_ALT+USB[0x14]		//Sim-Mouse Button 1
+define SimMouseButton2	L_ALT+USB[0x1A]		//Sim-Mouse Button 2
+define SimMouseSOI	USB[0x00]		//Sim-Mouse SOI Hold
+define SimMouseSOIOff	L_ALT+USB[0x30]		//Sim-Mouse SOI Off
+define SimMouseSOIOn	L_ALT+USB[0x2F]		//Sim-Mouse SOI On
+define SimMouseSOIToggle	USB[0x00]		//Sim-Mouse SOI Toggle
+define OTWEnterPosition	CHAIN(USB[0x06], D(25), L_CTL+USB[0x1D])		//Sim-Move to coordinates
+define OTWScaleDown	L_ALT+USB[0x4E]		//Sim-object scale down
+define OTWScaleUp	L_ALT+USB[0x4B]		//Sim-object scale up
+define SimTogglePaused	USB[0x13]		//Sim-Pause
+define SimResetTrackIR	CHAIN(USB[0x17], D(25), L_ALT+USB[0x06])		//Sim-Reset TrackIR
+define ScreenShot	USB[0x46]		//Sim-Screen shot
+define SetABDetent	CHAIN(USB[0x0E], D(25), L_ALT+USB[0x06])		//Sim-Set AB Detent
+define OTWSetObjDetail	CHAIN(L_CTL+USB[0x22], D(25), L_CTL+USB[0x1B])		//Sim-Set object density
+define OTWToggleScoreDisplay	L_ALT+USB[0x15]		//Sim-Show score
+define ToggleSmoke	L_CTL+USB[0x16]		//Sim-Smoke toggle
+define SoundDown	L_ALT+USB[0x05]		//Sim-Sound down
+define SoundOff	L_ALT+USB[0x16]		//Sim-Sound off
+define SoundUp	L_ALT+USB[0x11]		//Sim-Sound up
+define OTWToggleStatusLine	CHAIN(USB[0x16], D(25), L_CTL+USB[0x1D])		//Sim-Status Line
+define OTWToggleShading	CHAIN(USB[0x0A], D(25), L_CTL+USB[0x1B])		//Sim-Terrain shading
+define OTWToggleEyeFly	CHAIN(USB[0x09], D(25), L_CTL+USB[0x1D])		//Sim-Testing function
+define OTWTextureDecrease	L_CTL+L_SHIFT+USB[0x17]		//Sim-texture distance dec
+define OTWTextureIncrease	L_SHIFT+L_ALT+USB[0x17]		//Sim-texture distance inc
+define TimeAccelerateDec	L_CTL+USB[0x39]		//Sim-Time Accel Dec
+define TimeAccelerateInc	L_SHIFT+USB[0x39]		//Sim-Time Accel Inc
+define OTWToggleAutoScale	CHAIN(USB[0x27], D(25), L_CTL+USB[0x1B])		//Sim-vehicle auto-scaling
+define OTWToggleLocationDisplay	CHAIN(USB[0x0F], D(25), L_CTL+USB[0x1D])		//Sim-World Location
+
+
+// Sound **********************
+
+
+define SimStepMissileVolumeDown	L_CTL+L_SHIFT+USB[0x2F]		//Sound-Missile Volume Down
+define SimStepMissileVolumeUp	L_CTL+L_SHIFT+USB[0x30]		//Sound-Missile Volume up
+define SimStepThreatVolumeDown	L_SHIFT+L_ALT+USB[0x2F]		//Sound-Threat Volume Down
+define SimStepThreatVolumeUp	L_SHIFT+L_ALT+USB[0x30]		//Sound-Threat Volume up
+
+
+// Trim **********************
+
+
+define AFAileronTrimLeft	L_SHIFT+USB[0x50]		//Trim-Aileron Left
+define AFAileronTrimRight	L_SHIFT+USB[0x4F]		//Trim-Aileron Right
+define SimTrimAPDisc	L_CTL+USB[0x21]		//Trim-AP Disc
+define AFElevatorTrimDown	L_ALT+USB[0x51]		//Trim-Elevator Down
+define AFElevatorTrimUp	L_ALT+USB[0x52]		//Trim-Elevator Up
+define SimTrimNoseDown	L_SHIFT+L_ALT+USB[0x4D]		//Trim-Manual nose down
+define SimTrimNoseUp	L_SHIFT+L_ALT+USB[0x4A]		//Trim-Manual nose up
+define SimTrimRollLeft	L_SHIFT+L_ALT+USB[0x4C]		//Trim-Manual roll left
+define SimTrimRollRight	L_SHIFT+L_ALT+USB[0x4E]		//Trim-Manual roll right
+define SimTrimYawLeft	L_SHIFT+L_ALT+USB[0x49]		//Trim-Manual yaw Left
+define SimTrimYawRight	L_SHIFT+L_ALT+USB[0x4B]		//Trim-Manual yaw right
+define AFResetTrim	L_SHIFT+USB[0x52]		//Trim-Reset
+define AFRudderTrimLeft	L_ALT+USB[0x50]		//Trim-Rudder Left
+define AFRudderTrimRight	L_ALT+USB[0x4F]		//Trim-Rudder Right
+
+
+// View **********************
+
+
+define OTWSelect2DCockpitMode	USB[0x1F]		//View-2D Cockpit
+define OTWToggleActionCamera	L_SHIFT+USB[0x35]		//View-Action Camera
+define OTWStepNextAC	L_SHIFT+USB[0x37]		//View-Aircraft next
+define OTWStepPrevAC	L_SHIFT+USB[0x36]		//View-Aircraft previous
+define OTWSelectChaseMode	USB[0x26]		//View-Chase
+define OTW1000View	L_SHIFT+L_CTL+L_ALT+USB[0x5F]		//View-Cockpit 10:00
+define OTW200View	L_SHIFT+L_CTL+L_ALT+USB[0x61]		//View-Cockpit 2:00
+define OTW300View	L_SHIFT+L_CTL+L_ALT+USB[0x5E]		//View-Cockpit 3:00
+define OTW400View	L_SHIFT+L_CTL+L_ALT+USB[0x5B]		//View-Cockpit 4:00
+define OTW800View	L_SHIFT+L_CTL+L_ALT+USB[0x59]		//View-Cockpit 8:00
+define OTW900View	L_SHIFT+L_CTL+L_ALT+USB[0x5C]		//View-Cockpit 9:00
+define SimToggleGhostMFDs	L_SHIFT+USB[0x1E]		//View-Cockpit Ghost MFD Zoom
+define OTW1200HUDView	L_SHIFT+L_CTL+L_ALT+USB[0x54]		//View-Cockpit HUD
+define OTW1200LView	L_SHIFT+L_CTL+L_ALT+USB[0x62]		//View-Cockpit lower left
+define OTW1200RView	L_SHIFT+L_CTL+L_ALT+USB[0x5A]		//View-Cockpit lower right
+define SimToggleCockpit	L_SHIFT+USB[0x1F]		//View-Cockpit Wide/Normal
+define OTWSelectAirEnemyMode	L_CTL+USB[0x25]		//View-Enemy aircraft
+define OTWSelectGroundEnemyMode	L_ALT+USB[0x25]		//View-Enemy vehicle
+define OTWSelectEFOVPadlockMode	USB[0x22]		//View-Extended FOV
+define OTWSelectFlybyMode	L_SHIFT+USB[0x26]		//View-Flyby
+define OTWSelectAirFriendlyMode	USB[0x25]		//View-Friendly
+define OTWSelectGroundFriendlyMode	L_SHIFT+USB[0x25]		//View-Friendly ground unit
+define OTWCheckSix	USB[0x5B]		//View-Glance backward
+define OTWGlanceForward	USB[0x61]		//View-Glance forward
+define OTWSelectHUDMode	USB[0x1E]		//View-HUD Only
+define OTWSelectIncomingMode	USB[0x24]		//View-Incoming
+define FOVToggle	USB[0x0F]		//View-Look closer
+define SimMouseLook	USB[0x00]		//View-Mouse Look Hold
+define SimMouseLookOff	USB[0x00]		//View-Mouse Look Off
+define SimMouseLookOn	USB[0x00]		//View-Mouse Look On
+define SimMouseLookToggle	USB[0x00]		//View-Mouse Look Toggle
+define OTWSelectOrbitMode	USB[0x27]		//View-Orbit
+define OTWSelectF3PadlockMode	USB[0x21]		//View-Padlock
+define OTWSelectEFOVPadlockModeAA	L_SHIFT+USB[0x22]		//View-Padlock EFOV Mode=AA
+define OTWSelectEFOVPadlockModeAG	L_ALT+USB[0x22]		//View-Padlock EFOV Mode=AG
+define OTWSelectF3PadlockModeAA	L_SHIFT+USB[0x21]		//View-Padlock Mode=AA
+define OTWSelectF3PadlockModeAG	L_ALT+USB[0x21]		//View-Padlock Mode=AG
+define OTWStepNextPadlock	USB[0x57]		//View-Padlock next
+define OTWStepNextPadlockAA	L_SHIFT+USB[0x57]		//View-Padlock next AA
+define OTWStepNextPadlockAG	L_ALT+USB[0x57]		//View-Padlock next AG
+define OTWStepPrevPadlockAA	L_SHIFT+USB[0x56]		//View-Padlock prev AA
+define OTWStepPrevPadlockAG	L_ALT+USB[0x56]		//View-Padlock prev AG
+define OTWStepPrevPadlock	USB[0x56]		//View-Padlock previous
+define OTWViewReset	L_SHIFT+L_CTL+L_ALT+USB[0x5D]		//View-Reset
+define OTWViewDown	USB[0x5A]		//View-Rotate down
+define OTWViewLeft	USB[0x5C]		//View-Rotate left
+define OTWViewRight	USB[0x5E]		//View-Rotate right
+define OTWViewUp	USB[0x60]		//View-Rotate up
+define OTWSelectSatelliteMode	L_ALT+USB[0x35]		//View-Satellite Camera
+define OTWSelectTargetMode	L_SHIFT+USB[0x23]		//View-Target
+define OTWToggleSidebar	L_SHIFT+USB[0x20]		//View-Toggle SA bar
+define OTWSelectTowerCamMode	L_ALT+USB[0x27]		//View-Tower Camera
+define OTWTrackExternal	USB[0x23]		//View-Tracking
+define OTWSelect3DCockpitMode	USB[0x20]		//View-Virtual cockpit
+define OTWSelectWeaponMode	L_SHIFT+USB[0x24]		//View-Weapon
+define OTWTrackTargetToWeapon	L_ALT+USB[0x24]		//View-Weapon's target
+define OTWViewZoomIn	USB[0x59]		//View-Zoom in
+define OTWViewZoomOut	USB[0x5F]		//View-Zoom out
+
+
+// Wpn **********************
+
+
+define SimNextAAWeapon	USB[0x28]		//Wpn-A to A cycle hardpoints
+define SimNextAGWeapon	USB[0x2A]		//Wpn-A to G cycle hardpoints
+define BombIntervalDecrement	L_CTL+USB[0x33]		//Wpn-Bomb interval dec
+define BombIntervalIncrement	L_CTL+USB[0x34]		//Wpn-Bomb interval inc
+define BombRippleDecrement	L_SHIFT+USB[0x33]		//Wpn-Bomb ripple dec
+define BombRippleIncrement	L_SHIFT+USB[0x34]		//Wpn-Bomb ripple inc
+define BombBurstDecrement	L_CTL+USB[0x36]		//Wpn-CBU burst altitude dec
+define BombBurstIncrement	L_CTL+USB[0x37]		//Wpn-CBU burst altitude inc
+define SimTrigger	USB[0x38]		//Wpn-Fire gun
+define SimReticleSwitch	L_CTL+L_SHIFT+USB[0x10]		//Wpn-MAN Reticle
+define SimToggleMissileBoreSlave	L_CTL+USB[0x18]		//Wpn-Missile Bore/Slave
+define SimMissileStep	L_SHIFT+USB[0x38]		//Wpn-Missile Hardpoints cycle
+define SimToggleMissileTDBPUncage	L_ALT+USB[0x18]		//Wpn-Missile TD/BP
+define SimPickle	USB[0x2C]		//Wpn-Pickle
+define BombPairRelease	L_ALT+USB[0x34]		//Wpn-Release bombs in pairs
+define BombSGLRelease	L_ALT+USB[0x33]		//Wpn-Release bombs singly
+define SimToggleMissileSpotScan	L_SHIFT+USB[0x18]		//Wpn-Sidewinder Spot/Scan
+define SimToggleMissileCage	USB[0x18]		//Wpn-Sidewinder-Cage/Uncage
