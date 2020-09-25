@@ -1,0 +1,212 @@
+
+USE MDEF FSX
+USE ZERO_MOUSE
+USE PROFILE FSX.tmc (CUSTOM)
+USE HWSTARTUP (EMULATION_ON, AXIS_MODE_USER, CALIBRATION_MANUAL)
+USE RATE (60)
+
+rem CONTROL SURFACES
+rem BTN H4R        flaps_extend_fully
+rem BTN H4L        flaps_retract_incrementally
+rem BTN H4U /H     elevator_trim_down
+rem BTN H4D /H     elevator_trim_up
+
+BTN H1U /H     elevator_trim_down
+BTN H1D /H     elevator_trim_up
+
+BTN H3D        landing_gear_toggle
+BTN H3R        tail_hook_toggle
+BTN H3L        launch_bar_toggle
+BTN H3U flaps_cycle
+rem BTN H3U /T     flaps_extend_fully
+rem         /T     flaps_retract_incrementally
+rem         /T     flaps_retract_incrementally
+
+BTN TG2 /I     RESET_TOGGLES
+        /O /T  takeoff_assist_toggle
+           /T  takeoff_assist_trigger
+
+BTN S4         kneeboard_toggle
+
+rem VIEWS
+BTN S2         view_next_category
+
+BTN T10 /P     spoilers_toggle
+        /R     spoilers_toggle
+BTN T9         key_mode_toggle
+
+rem VRS F/A-18E Super Hornet
+
+rem BTN H3U /I     takeoff_trim
+rem        /O     flaps_cycle
+rem BTN S1 /T      nosewheel_steering_mode
+rem        /T      nosewheel_steering_mode
+rem        /T      nosewheel_steering_disengage
+
+BTN S1         nosewheel_steering_mode
+
+BTN T2	/I fs_recorder_toggle
+		/O pause
+BTN T3	/I parking_break_toggle
+		/O ENT
+BTN T5	/I fraps_toggle
+		/O ENT
+
+BTN T4         ddi_switch
+BTN H2U /I     ddi_pb2
+        /O     takeoff_trim_toggle
+BTN H2D /I     ddi_pb5
+        /O     seat_arm_toggle
+BTN H2L /I     ddi_switch
+        /O     wings_folded_toggle
+BTN H2R /I     ddi_pb4
+        /O     hud_lock
+
+BTN H4L        master_caution_reset
+BTN H4R        gen_tie_reset
+
+MIX /I 6 23 (2 4 6 8 11 14 17 21 25 30 36 43 58 65 71 76 80 84 87 90 93 95 97 98) MSX(3+) MSX(3-) MSX(0)
+    /O 3  LARROW ^ RARROW   
+MIY /I 6 23 (2 4 6 8 11 14 17 21 25 30 36 43 58 65 71 76 80 84 87 90 93 95 97 98) MSY(3-) MSY(3+) MSY(0)
+    /O 3  DARROW ^ UARROW
+BTN T1 /I /H MOUSE_RB
+       /O /H MOUSE_LB
+
+Rem -----------------------------------
+Rem           Joystick buttons
+Rem -----------------------------------
+
+rem TG1 will toggle acmi, TG2 will fire cannon
+rem BTN TG1 /P Toggle_ACMI
+rem 	      /R Toggle_ACMI	
+rem BTN TG2 /H Fire_cannon 
+
+rem H1 is TRIM (Efalcon only)
+rem added view control and moved trim controls to S3in for simulation purpose
+rem BTN H1U /I /H trim_up
+rem 	      /O /H View_up 
+rem BTN H1D /I /H trim_down
+rem                /O /H View_down 
+rem BTN H1L /I /H trim_rudder_left 
+rem                /O /H View_left 
+rem BTN H1R /I /H trim_rudder_right 
+rem                /O /H View_right 
+  
+
+rem H2 is Target Management (information classified)
+rem /I is ACM submodes
+rem BTN H2U /I Acm_boresight
+rem                /O Designate 
+rem BTN H2D /I Acm_vertical
+rem                /O Undesignate 
+rem BTN H2L /I Acm_30x20 
+rem               /O Lock_on_nose 
+rem BTN H2R /I ACM_slew
+rem              /O reset_cursor 
+rem BTN H2U TMS_up 
+rem BTN H2D TMS_down 
+rem BTN H2L TMS_left 
+rem BTN H2R TMS_right 
+
+rem H3 is display management
+rem H3u is normally SOI to Hud but not implemented replaced by HSD range increase
+rem H3d is normally SOI to MFD but not implemented replaced by HSD range decrease
+rem BTN H3U /I Increase_Hsd_range
+rem BTN H3D Decrease_Hsd_range
+
+rem BTN H3U /I radar_ag
+rem         /O radar_aa
+rem BTN H3D /I radar_gm_freeze
+rem         /O radar_submode
+
+rem BTN H3L /I steerpoint_prev
+rem         /O Cycle_left_mfd
+        
+rem BTN H3R /I steerpoint_next
+rem         /O Cycle_right_mfd
+
+rem H4 is countermeasures (information classified)
+rem added sim ECM and reset warning on H4L and R
+rem BTN H4U Chaff 
+rem BTN H4D Flares 
+rem BTN H4L Reset_master_caution 
+rem BTN H4R Ecm 
+
+rem BTN S2 /H Pickle 
+
+rem S3 is normally SOI_FOV but it's not possible to implement it here because it depends on the weapon mode
+rem BTN S3 is blank
+
+rem S4 is paddle switch (AP override) Efalcon only
+rem BTN S4 /P KD (LCTL 3) 
+rem 	    /R KU (3 LCTL)		rem AP_Override 
+
+rem S1 is MSL step in ACM modes /U and /D. in /M mode toggle Nosewheel steering (Efalcon Only)
+rem normally NS is not mode dependant but enabled when the A/C is on the ground
+rem BTN S1 /U Cycle_missile 
+rem              /M /I Refuelling_door 
+rem 	       /O toggle_NSsteering 
+rem              /D Cycle_missile
+
+Rem ------------------------------------
+Rem           Throttle buttons
+Rem ------------------------------------
+
+rem T9 T10 is speedbrake 
+rem BTN T9 /P Speed_brake  
+rem             /R Speed_brake 
+rem BTN T10 /P Speed_brake 
+rem               /R Speed_brake  
+
+rem T7 T8 is Dogfight and missile mode.  use it also as AA/NAV/AA mode as the S1 use /U /M /D modifiers.
+rem BTN T7 /P Dogfight 
+rem              /R Cancel_Missile_mode 
+rem BTN T8 /P MRM_modes 
+rem             /R Cancel_Missile_mode 
+
+rem T6 is Aim9 Cage
+rem BTN T6 Uncage_seeker_head 
+
+rem BTN T1 /I /H MOUSE_LB
+rem             /O slave_boresight 
+
+rem T2 T3 T4 T5 is radio switch (2 way only)
+rem BTN T2 icp_com1 rem UHF
+rem BTN T3 icp_com2 rem VHF
+
+rem ---- Trent
+rem BTN T5 ^
+rem BTN T4 ^
+rem ----
+
+
+
+Rem -------------------------------------
+Rem           Digital Statement
+Rem -------------------------------------
+
+Rem Radar Elevation
+rem ANT 1 14 F7 F5 F6 
+Rem Radar Range 
+rem RNG /I 1 6 decrease_radar_gain Increase_radar_gain ^
+rem         /O 1 6 F3 F4 ^
+
+rem microstick is mouse with /O and radar cursor with /I
+rem MIX /I 6 23 (2 4 6 8 11 14 17 21 25 30 36 43 58 65 71 76 80 84 87 90 93 95 97 98) MSX(3+) MSX(3-) MSX(0)
+rem     /O 3  LARROW ^ RARROW   
+rem MIY /I 6 23 (2 4 6 8 11 14 17 21 25 30 36 43 58 65 71 76 80 84 87 90 93 95 97 98) MSY(3-) MSY(3+) MSY(0)
+rem     /O 3  DARROW ^ UARROW
+
+Rem - Trent
+rem BTN T5 view_3d
+rem BTN T4 view_2d
+rem BTN T2 wpn_aa_cycle
+rem BTN T3 wpn_ag_cycle
+
+
+
+rem USE THR_RANGE (27%, 100%) 
+rem THR /U 5 3 (0 54 67 100) UNLOCK (THR) LOCK (THR, 54%) UNLOCK (THR) 
+rem         /M /I 5 4 (0 54 59 67 100) UNLOCK (THR) (Idle_Detent) LOCK (THR, 54%) UNLOCK (THR) 
+rem            /O 5 3 (0 54 67 100) UNLOCK (THR) LOCK (THR, 54%) UNLOCK (THR) 
+rem         /D 5 3 (0 54 67 100) UNLOCK (THR) LOCK (THR, 54%) UNLOCK (THR)

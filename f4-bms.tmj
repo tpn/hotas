@@ -1,0 +1,218 @@
+Rem ################################################
+Rem
+Rem         Real F16 Hotas programmation for Falcon 4
+Rem
+Rem             by olivier "Red Dog" Beaumont
+Rem
+Rem             last modified: 07 September 2013, 7:53 am
+Rem
+Rem                         For: Hotas Cougar
+Rem
+Rem ################################################
+Rem              olivier.beaumont@chello.be
+Rem
+Rem ################################################
+
+USE MDEF f4-bms
+DISABLE MOUSE
+USE PROFILE trent.tmc (CUSTOM)
+USE HWSTARTUP (EMULATION_ON, AXIS_MODE_WINDOWS, CALIBRATION_MANUAL)
+USE AXES_CONFIG (1, JOYX), (2, JOYY), (3, THR), (4, ANT), (5, RNG), (7, MIX), (8, MIY)
+rem USE  CURVE (ANT, -5) Rem ** Adds a little more control over mid ant movements **
+rem USE  CURVE (RNG, -5) Rem ** Adds a little more control over mid RNG movements **
+USE RATE (60)
+
+rem DEF X32 DELAY(6000) T10
+rem BTN X32 <speed_brake_close_release>
+
+rem USE PROFILE TM F4 Real Hotas.tmc (AUTO)
+rem USE FOXY GRAPHIC TM F4 Real Hotas.jpg
+rem USE FOXY README TM F4 Real Hotas.rtf
+rem USE ZERO_MOUSE 824
+
+Rem -----------------------------------
+Rem           Joystick buttons
+Rem -----------------------------------
+
+rem TG1 will toggle acmi, TG2 will fire cannon
+rem BTN TG1 /P Toggle_ACMI
+rem 	      /R Toggle_ACMI
+BTN TG2 /H Fire_cannon
+
+rem H1 is TRIM (Efalcon only)
+rem added view control and moved trim controls to S3in for simulation purpose
+BTN H1U /I /H wingman_attack_my_target
+	      /O AWACS_Vector_Alternate
+BTN H1D /I /H wingman_rtb
+               /O AWACS_Vector_Home
+BTN H1L /I /H AWACS_Nearest_Threat
+               /O /P /H trim_left /R ^
+BTN H1R /I /H  AWACS_Declare
+               /O /P /H trim_right /R ^
+
+rem H2 is Target Management (information classified)
+rem /I is ACM submodes
+rem BTN H2U /I Acm_boresight
+rem                /O Designate
+rem BTN H2D /I Acm_vertical
+rem                /O Undesignate
+rem BTN H2L /I Acm_30x20
+rem               /O Lock_on_nose
+rem BTN H2R /I ACM_slew
+rem               /O reset_cursor
+
+BTN H2U /I Designate
+	/O TMS_Up
+BTN H2D /I Undesignate
+	/O TMS_down
+BTN H2L /I Lock_on_nose
+	/O TMS_left
+BTN H2R /I reset_cursor
+	/O TMS_right
+
+rem H3 is display management
+rem H3u is normally SOI to Hud but not implemented replaced by HSD range increase
+rem H3d is normally SOI to MFD but not implemented replaced by HSD range decrease
+rem BTN H3U /I Increase_Hsd_range
+rem BTN H3D Decrease_Hsd_range
+
+rem BTN H3U /I radar_ag
+rem         /O radar_aa
+rem BTN H3D /I radar_gm_freeze
+rem         /O radar_submode
+
+rem BTN H3L /I steerpoint_prev
+rem         /O Cycle_left_mfd
+
+rem BTN H3R /I steerpoint_next
+rem         /O Cycle_right_mfd
+
+BTN H3U /I /T icp_ag /T icp_nav /T icp_aa
+	/O DMS_Up
+BTN H3D /I trim_reset
+	/O DMS_down
+BTN H3L /I  steerpoint_prev
+	/O DMS_left
+BTN H3R /I steerpoint_next
+	/O DMS_right
+
+rem H4 is countermeasures (information classified)
+rem added sim ECM and reset warning on H4L and R
+BTN H4U /I cycle_left_mfd
+	/O Chaff
+BTN H4D /I cycle_right_mfd
+	/O Flares
+BTN H4L /I trackir_freeze
+	/O Reset_master_caution
+BTN H4R /I trackir_center
+	/O Ecm
+
+BTN S2 /I /H ^
+	/O /H Pickle
+
+rem S3 is normally SOI_FOV but it's not possible to implement it here because it depends on the weapon mode
+rem BTN S3 is blank
+rem BTN S3 hotas_pinky
+
+rem S4 is paddle switch (AP override) Efalcon only
+BTN S4 /P KD (LCTL 3)
+	   /R KU (3 LCTL)		rem AP_Override
+
+rem S1 is MSL step in ACM modes /U and /D. in /M mode toggle Nosewheel steering (Efalcon Only)
+rem normally NS is not mode dependant but enabled when the A/C is on the ground
+BTN S1 /U Cycle_missile
+             /M /I Refuelling_door
+	       /O toggle_NSsteering
+             /D Cycle_missile
+
+Rem ------------------------------------
+Rem           Throttle buttons
+Rem ------------------------------------
+
+rem T9 T10 is speedbrake
+BTN T9 /P /H speed_brake_open /R DLY(100) speed_brake_toggle
+rem BTN T10 /P /H KD (speed_brake_open) DLY(2250) KU (speed_brake_open) /R speed_brake_close
+BTN T10 /P speed_brake_toggle /R speed_brake_toggle
+
+rem T7 T8 is Dogfight and missile mode.  use it also as AA/NAV/AA mode as the S1 use /U /M /D modifiers.
+BTN T7 /P Dogfight /R Cancel_Missile_mode
+BTN T8 /P MRM_modes /R Cancel_Missile_mode
+
+rem T6 is Aim9 Cage
+BTN T6 /I sidewinder_scan
+	/O Uncage_seeker_head
+
+BTN T1 /I hotas_pinky
+	/O hotas_cursor_enable
+
+rem T2 T3 T4 T5 is radio switch (2 way only)
+rem BTN T2 icp_com1 rem UHF
+rem BTN T3 icp_com2 rem VHF
+
+rem ---- Trent
+rem BTN T5 ^
+rem BTN T4 ^
+rem ----
+
+
+
+Rem -------------------------------------
+Rem           Digital Statement
+Rem -------------------------------------
+
+Rem Radar Elevation
+rem ANT 1 14 F7 F5 F6
+Rem Radar Range
+rem RNG /I 1 6 decrease_radar_gain Increase_radar_gain ^
+rem         /O 1 6 F3 F4 ^
+
+ rem microstick is mouse with /O and radar cursor with /I
+rem MIX /I 6 23 (2 4 6 8 11 14 17 21 25 30 36 43 58 65 71 76 80 84 87 90 93 95 97 98) MSX(3+) MSX(3-) MSX(0)
+rem        /O 3  LARROW ^ RARROW
+rem  MIY /I 6 23 (2 4 6 8 11 14 17 21 25 30 36 43 58 65 71 76 80 84 87 90 93 95 97 98) MSY(3-) MSY(3+) MSY(0)
+rem         /O 3  DARROW ^ UARROW
+
+Rem - Trent
+rem BTN T5 view_3d
+rem BTN T4 view_2d
+rem BTN T2 /I wpn_aa_cycle
+rem 	/O /T radar_aa /T radar_ag
+rem BTN T3 wpn_ag_cycle
+
+Rem ** UHF **
+BTN T2 /I wpn_aa_cycle
+       /O /P /H transmit_comms_1 /R transmit_comms_1
+
+Rem ** VHF **
+BTN T3 /I wpn_ag_cycle
+	/O /P /H transmit_comms_2 /R transmit_comms_2
+
+Rem ** IFF IN **
+BTN T4 /I /A sim_fov_decrease ^
+       /O /P /H comm_switch_right /R ^
+
+Rem ** IFF OUT **
+BTN T5 /I sim_fov_default ^
+       /O /P /H comm_switch_left /R ^
+
+
+rem MIY /I 6 23 (2 4 6 8 11 14 17 21 25 30 36 43 58 65 71 76 80 84 87 90 93 95 97 98) MSX(1-) MSX(1+) MSX(0)
+rem /O ^ Rem ** used as analogue axis **
+rem MIX /I 6 23 (2 4 6 8 11 14 17 21 25 30 36 43 58 65 71 76 80 84 87 90 93 95 97 98) MSY(1-) MSY(1+) MSY(0)
+rem /O ^ Rem ** used as analogue axis **
+
+MIY ^
+MIX ^
+ANT ^
+rem RNG /I 4 300 hsd_range_decrease hsd_range_increase ^
+rem	/O 4 300 radar_range_knob_down radar_range_knob_up ^
+RNG 1 6 radar_range_knob_down radar_range_knob_up ^
+
+rem RNG /I 1 6 radar_gain_decrease radar_gain_increase ^
+rem 	/O 1 6 radar_range_knob_down radar_range_knob_up
+
+rem USE THR_RANGE (27%, 100%)
+rem THR /U 5 3 (0 54 67 100) UNLOCK (THR) LOCK (THR, 54%) UNLOCK (THR)
+rem         /M /I 5 4 (0 54 59 67 100) UNLOCK (THR) (Idle_Detent) LOCK (THR, 54%) UNLOCK (THR)
+rem            /O 5 3 (0 54 67 100) UNLOCK (THR) LOCK (THR, 54%) UNLOCK (THR)
+rem         /D 5 3 (0 54 67 100) UNLOCK (THR) LOCK (THR, 54%) UNLOCK (THR)

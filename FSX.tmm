@@ -1,0 +1,55 @@
+
+rem CONTROL SURFACES
+
+flaps_retract_fully = F5
+flaps_retract_incrementally = F6
+flaps_extend_incrementally = F7
+flaps_extend_fully = F8
+
+elevator_trim_up = KP1
+elevator_trim_down = KP7
+
+spoilers_arm = CTL /
+spoilers_toggle = /
+
+rem SYSTEMS
+
+parking_break_toggle = CTL .
+landing_gear_toggle = g
+landing_gear_extend_manually = CTL g
+
+hoist_arm_toggle = CTL u
+launch_bar_toggle = SHF u
+tail_hook_toggle = SHF q
+takeoff_assist_toggle = SHF i
+takeoff_assist_trigger = SHF SPC
+
+rem VIEWS
+kneeboard_toggle = SHF F10
+view_next_category = s
+view_next_in_current_category = a
+view_next_window = CTL TAB
+
+rem F/A-18E Super Hornet
+key_mode_toggle = CTL x
+flaps_cycle = CTL f
+rem launchbar_toggle = b
+master_caution_reset = CTL m
+nosewheel_steering_mode = n
+nosewheel_steering_disengage = SHF n
+takeoff_trim_toggle = CTL t
+seat_arm_toggle = CTL s
+autothrottle_toggle = CTL y
+wings_folded_toggle = CTL w
+gen_tie_reset = CTL g
+hud_lock = CTL u
+
+ddi_switch = TAB
+rem ddi_pb1 =  1
+ddi_pb2 = SHF 2
+ddi_pb4 = SHF 4
+ddi_pb5 = SHF 5
+
+fs_recorder_toggle = CTL r
+pause = p
+fraps_toggle = `

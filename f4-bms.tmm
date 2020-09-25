@@ -1,0 +1,156 @@
+Rem ################################################
+Rem
+Rem          Real F16 Hotas programmation for Falcon 4
+Rem                                 by Red Dog
+Rem
+Rem           TO BE USED WITH THE KEYSTROKE.KEY
+Rem                     IN YOUR CONFIG FOLDER
+Rem
+Rem                    last modified: 07 September 2013, 7:52 am
+Rem
+Rem   	         For Cougar Hotas
+Rem ################################################
+Rem                           Olivier Beaumont
+Rem                     olivier.beaumont@chello.be
+Rem                                  Belgium
+Rem
+Rem ################################################
+
+Rem -------------------------
+Rem           Views
+Rem -------------------------
+View_up = KP8
+View_down = KP2
+View_left = KP4
+View_right = KP6
+View_zoom_in = KP+
+View_zoom_out = KP-
+
+Rem --------------------------------
+Rem           A/C Controls
+Rem --------------------------------
+
+rem Speed_brake_close = USB (DE0 D05 U05 UE0)     rem CTL b
+rem Speed_brake_open = USB (DE1 D05 U05 UE1)     rem SHF b
+speed_brake_toggle = b
+speed_brake_open = SHF b
+speed_brake_open_press = KD(SHF b)
+speed_brake_open_release = KU(b SHF)
+speed_brake_close = CTL b
+speed_brake_close_press = KD(CTL b)
+speed_brake_close_release = KU(b CTL)
+
+Flares = z
+Chaff = x
+Toggle_ACMI = f
+Ecm = j
+Cycle_right_mfd = ]
+Cycle_left_mfd = [
+SOI_FOV = v
+Reset_master_caution = USB (DE0 D06 U06 UE0)    rem CTL c
+rem Increase_Hsd_range = F12
+rem Decrease_Hsd_range = F11
+rem trim_up = ALT UARROW
+rem trim_down = ALT DARROW
+rem trim_rudder_right = ALT RARROW
+rem trim_rudder_left = ALT LARROW
+Autopilot_override = CTL 3
+toggle_NSsteering =  USB (DE1 D38 U38 UE1)   rem SHF /
+Refuelling_door = USB (DE1 D15 U15 UE1)   rem SHF r
+
+rem trim_up = ALT UARROW
+rem trim_down = ALT DARROW
+trim_right = SHF RARROW
+trim_left = SHF LARROW
+trim_reset = SHF UARROW
+
+Rem -----------------------
+Rem           ICP
+Rem -----------------------
+icp_com1 = SHF KP/
+icp_com2 = SHF KP*
+
+Rem -------------------------
+Rem           radar
+Rem -------------------------
+Acm_boresight = USB (DE0 D3E U3E UE0)  rem CTL F5
+Acm_30x20 = USB (DE0 D3F U3F UE0)      rem CTL F6
+ACM_slew = USB (DE0 D40 U40 UE0)     rem CTL F7
+Designate = KP0
+Undesignate = KP.
+reset_cursor = USB (DE1 D51 U51 UE1)    rem SHF DARROW
+Acm_vertical = USB (DE0 D41 U41 UE0)      rem CTL F8
+Increase_radar_gain = USB (DE1 D3D U3D UE1)    rem SHF F4
+decrease_radar_gain = USB (DE1 D3C U3C UE1)    rem SHF F3
+Lock_on_nose = END
+TMS_left = CTL LARROW				rem eF110
+TMS_right = CTL RARROW			rem eF110
+TMS_up = CTL UARROW				rem eF110
+TMS_down = CTL DARROW			rem eF110
+
+
+Rem ---------------------------
+Rem           Weapons
+Rem ---------------------------
+Dogfight = d
+MRM_modes = m
+Cancel_Missile_mode = c
+Cycle_missile = SHF /
+Uncage_seeker_head = u
+Fire_cannon = /
+Pickle = SPC
+slave_boresight = '
+
+Rem - Trent
+view_3d = 3
+view_2d = 2
+wpn_ag_cycle = BSP
+wpn_aa_cycle = ENT
+radar_aa = F1
+radar_ag = F2
+radar_submode = F11
+radar_gm_freeze = F10
+radar_range_increase = F4
+radar_range_decrease = F3
+radar_range_knob_up = CTL F3
+radar_range_knob_down = CTL F4
+hsd_range_increase = SHF F12
+hsd_range_decrease = SHF F12
+steerpoint_next = s
+steerpoint_prev = SHF s
+DMS_up = SHF KP8
+DMS_down = SHF KP2
+DMS_left = SHF KP4
+DMS_right = SHF KP6
+maverick_fov = SHF v
+hotas_pinky = ALT v
+hotas_cursor_enable = SHF n
+sidewinder_scan = SHF u
+transmit_comms_1 = ALT 1
+transmit_comms_2 = ALT 2
+comm_switch_left = CTL o
+comm_switch_right = CTL p
+
+AWACS_Declare = <q DLY(60) 2>
+AWACS_Nearest_Threat = <q DLY(60) q DLY(60) 1>
+AWACS_Picture = <q DLY(60) 1>
+AWACS_Vector_Home = <q DLY(60) q DLY(60) 5>
+AWACS_Vector_Alternate = <q DLY(60) q DLY(60) 6>
+
+sim_fov_decrease = KD(SHF F3) KU(SHF F3)
+sim_fov_default = SHF F4
+
+wingman_weapons_free = <w DLY(60) 4>
+wingman_weapons_hold = <w DLY(60) 5>
+wingman_attack_my_target = <w DLY(60) 8>
+wingman_rtb = <w DLY(60) w DLY(60) w DLY(60) 2>
+
+icp_aa = SHF KP0
+icp_ag = SHF KP.
+icp_nav = SHF KPENT
+icp_reset = CTL KP2
+
+wheel_brake = k
+
+trackir_freeze = F9
+trackir_center = F12
